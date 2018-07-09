@@ -1,0 +1,22 @@
+apiVersion: radix.equinor.com/v1
+kind: RadixApplication
+metadata:
+  name: radix-simple-webapp-django
+spec:
+  environments:
+    - name: development
+      authorization:
+      - role: RadixAppAdmin
+        groups:
+        - "g_radix_platform_user"
+    - name: production
+      authorization:
+      - role: RadixAppAdmin
+        groups:
+        - "g_radix_platform_user"
+  components:
+    - name: app+db+nginx
+      src: "."
+      ports:
+       - 80
+      public: true
