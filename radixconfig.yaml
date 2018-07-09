@@ -20,3 +20,8 @@ spec:
       ports:
        - 8000
       public: true
+    - name: db
+      src: ./db/
+      ports:
+       - 5432
+      public: false
