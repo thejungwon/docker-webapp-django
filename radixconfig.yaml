@@ -16,7 +16,7 @@ spec:
         - "g_radix_platform_user"
   components:
     - name: app
-      src: ". /code/"
+      src: "code/"
       ports:
        - 8000
       public: true
