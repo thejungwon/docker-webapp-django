@@ -1,7 +1,7 @@
 apiVersion: radix.equinor.com/v1
 kind: RadixApplication
 metadata:
-  name: radix-simple-webapp-django
+  name: radix-webapp-django
 spec:
   environments:
     - name: development
