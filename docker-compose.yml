@@ -10,7 +10,7 @@ services:
     command: "./entry_point.sh"
     restart: always
     volumes:
-      - .:/src/app
+      - .:/src/code
     expose:
       - "8000"
     ports:
