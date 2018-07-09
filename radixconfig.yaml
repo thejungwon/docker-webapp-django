@@ -4,12 +4,12 @@ metadata:
   name: radix-webapp-django
 spec:
   environments:
-    - name: development
+    - name: dev
       authorization:
       - role: RadixAppAdmin
         groups:
         - "g_radix_platform_user"
-    - name: production
+    - name: prod
       authorization:
       - role: RadixAppAdmin
         groups:
