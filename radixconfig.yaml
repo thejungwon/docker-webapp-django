@@ -21,7 +21,7 @@ spec:
        - 8000
       public: true
     - name: db
-      src: db/
+      src: app/db/
       ports:
        - 5432
       public: false
