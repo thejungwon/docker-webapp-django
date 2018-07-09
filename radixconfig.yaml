@@ -16,12 +16,12 @@ spec:
         - "g_radix_platform_user"
   components:
     - name: app
-      src: "."
+      src: .
       ports:
        - 8000
       public: true
     - name: db
-      src: ./db/
+      src: .
       ports:
        - 5432
       public: false
