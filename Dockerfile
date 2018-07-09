@@ -1,10 +1,10 @@
 FROM python:3
 
 
-RUN mkdir /code
-WORKDIR /code
-ADD requirements.txt /code/
+RUN mkdir /src
+WORKDIR /src
+ADD requirements.txt /src/
 RUN pip install -r requirements.txt
-ADD . /code/
+ADD . /src/
 RUN chmod +x entry_point.sh
 EXPOSE 8000
