@@ -1,1 +1,1 @@
-Django!
+Django + Postgresql + Nginx
