@@ -18,5 +18,5 @@ spec:
     - name: h
       src: "."
       ports:
-       - 80
+       - 8000
       public: true
