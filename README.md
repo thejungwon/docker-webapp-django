@@ -1,1 +1,1 @@
-Django + Postgresql + Nginx
+Django + Postgresql + Nginx + Love
