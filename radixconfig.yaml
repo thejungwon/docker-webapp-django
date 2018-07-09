@@ -15,7 +15,7 @@ spec:
         groups:
         - "g_radix_platform_user"
   components:
-    - name: h
+    - name: www
       src: "."
       ports:
        - 8000
