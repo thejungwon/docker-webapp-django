@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  db:
+    image: postgres
+  app:
+    build: .
+    command: "./entry_point.sh"
+    restart: always
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    links:
+      - db
