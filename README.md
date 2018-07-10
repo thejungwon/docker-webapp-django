@@ -1,1 +1,1 @@
-Django + Postgresql  + Love
+Django + Postgresql  + Happiness
