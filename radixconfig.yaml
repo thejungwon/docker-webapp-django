@@ -20,7 +20,7 @@ spec:
       ports:
        - 8000
       public: true
-    - name: db
+    - name: postgres
       src: .
       ports:
        - 5432

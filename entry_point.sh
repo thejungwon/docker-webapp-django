@@ -1,4 +1,5 @@
 #!/bin/bash
+cd src
 python manage.py makemigrations
 until python manage.py migrate; do
   sleep 2
