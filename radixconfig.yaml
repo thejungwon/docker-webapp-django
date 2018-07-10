@@ -21,7 +21,7 @@ spec:
        - "8000"
       public: true
     - name: "postgres"
-      src: "."
+      src: "./postgres"
       ports:
        - "5432"
       public: true
