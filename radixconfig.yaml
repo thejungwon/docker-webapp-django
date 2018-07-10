@@ -1,27 +1,27 @@
-apiVersion: radix.equinor.com/v1
-kind: RadixApplication
+apiVersion: "radix.equinor.com/v1"
+kind: "RadixApplication"
 metadata:
-  name: radix-webapp-django
+  name: "radix-webapp-django"
 spec:
   environments:
-    - name: dev
+    - name: "dev"
       authorization:
-      - role: RadixAppAdmin
+      - role: "RadixAppAdmin"
         groups:
         - "g_radix_platform_user"
-    - name: prod
+    - name: "prod"
       authorization:
-      - role: RadixAppAdmin
+      - role: "RadixAppAdmin"
         groups:
         - "g_radix_platform_user"
   components:
-    - name: app
-      src: .
+    - name: "app"
+      src: "."
       ports:
-       - 8000
+       - "8000"
       public: true
-    - name: postgres
-      src: .
+    - name: "postgres"
+      src: "."
       ports:
-       - 5432
-      public: false
+       - "5432"
+      public: true
