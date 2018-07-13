@@ -25,9 +25,3 @@ spec:
       ports:
        - 8000
       public: false
-      volumeMounts:
-        - name: postgres-storage
-          mountPath: /data/postgres
-  volumes:
-    - name: postgres-storage
-      emptyDir: {}
