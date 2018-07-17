@@ -6,8 +6,6 @@ services:
       context: .
       dockerfile: Dockerfile
     command: "./entry_point.sh"
-    volumes:
-      - .:/src/volume
     expose:
       - "8000"
     ports:
@@ -15,6 +13,8 @@ services:
     links:
       - postgres
   postgres:
-    image: postgres
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
     ports:
       - "5432:5432"
