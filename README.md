@@ -13,9 +13,9 @@ Two containers
 When we launch the application with `docker-composer`, it is not possible to predict the finishing time.
 This can be a big problem when one container has to be launched while the other container is properly running.
 
-PostgreSQL needs more time to be launched than the Django application when it is its first launch. However, the Django application needs to be connected with a database before it starts to run.
+In this example, PostgreSQL needs more time to be launched than the Django application when it is its first launch. However, the Django application needs to be connected with a database before it starts to run.
 
-In this example, we should run the container with some additional tactics like in `entry_point.sh`.
+In the dockerfile, we should run the container with some additional tactics like in `entry_point.sh`.
 
 ```
 #!/bin/bash
@@ -53,8 +53,8 @@ docker-compose version 1.21.1, build 5a3f1a3
 ### Installing
 
 ```
-git clone https://github.com/MuchasEstrellas/radix-simple-chat.git
-cd radix-simple-chat
+git clone https://github.com/MuchasEstrellas/radix-webapp-django.git
+cd radix-webapp-django
 docker-compose up
 ```
 
