@@ -54,8 +54,8 @@ docker-compose version 1.21.1, build 5a3f1a3
 ### Installing
 
 ```
-git clone https://github.com/MuchasEstrellas/radix-scenario4-webapp.git
-cd radix-scenario4-webapp
+git clone https://github.com/MuchasEstrellas/docker-webapp-django.git
+cd docker-webapp-django
 docker-compose up
 ```
 
@@ -71,11 +71,7 @@ TBD
 
 TBD
 
-## Deployment
 
-**When you use docker composer, your local machine is using `docker-compose.yaml`, but the platform uses the `radixconfig.yaml`. Make sure that your `radixconfig.yaml` is correct.**
-
-Please, follow the steps in the Omnia Radix wiki page.
 
 ## Built With
 
