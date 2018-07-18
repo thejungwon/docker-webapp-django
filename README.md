@@ -1,6 +1,7 @@
 # Radix Django with PostgreSQL
 
 One-minute deployment, simple but cool web application.
+
 *It is not recommended to deploy a database to the instances, this example shows the way to handle the multi-container situation, especially, when one container(Django) strongly depends on the other container(database).*
 
 
