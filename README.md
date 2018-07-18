@@ -5,7 +5,7 @@ One-minute deployment, simple but cool web application.
 
 
 ## Getting Started
-
+![Screen Shopt](images/screenshot.png?raw=true "Screen Shot")
 Two containers
   * web app(Django)
   * database(PostgreSQL)
