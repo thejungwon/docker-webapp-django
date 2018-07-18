@@ -54,8 +54,8 @@ docker-compose version 1.21.1, build 5a3f1a3
 ### Installing
 
 ```
-git clone https://github.com/MuchasEstrellas/radix-webapp-django.git
-cd radix-webapp-django
+git clone https://github.com/MuchasEstrellas/radix-scenario3-webapp.git
+cd radix-scenario3-webapp
 docker-compose up
 ```
 
