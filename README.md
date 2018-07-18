@@ -83,8 +83,9 @@ Please, follow the steps in the Omnia Radix wiki page.
 ## Built With
 
 * [Django](https://www.djangoproject.com/) - Web framework
-* [PostgreSQL](https://www.PostgreSQL.org/) - Database
-* [Unsplash](https://source.unsplash.com/) -  External API
+* [PostgreSQL](https://www.postgresql.org/) - Database
+* [Unsplash](https://source.unsplash.com/) - External API
+* [Bootstrap](https://getbootstrap.com/) - Front-end framework
 
 
 ## Authors
