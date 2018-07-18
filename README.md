@@ -59,9 +59,6 @@ cd radix-webapp-django
 docker-compose up
 ```
 
-
-
-
 ## Running the tests
 
 TBD
