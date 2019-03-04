@@ -83,7 +83,7 @@ TBD
 
 ## Authors
 
-* **Jungwon Seo** - *Initial work* - [MuchasEstrellas](https://github.com/MuchasEstrellas)
+* **Jungwon Seo** - *Initial work* - [thejungwon](https://github.com/thejungwon)
 
 
 ## License
