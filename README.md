@@ -54,7 +54,7 @@ docker-compose version 1.21.1, build 5a3f1a3
 ### Installing
 
 ```
-git clone https://github.com/MuchasEstrellas/docker-webapp-django.git
+git clone https://github.com/thejungwon/docker-webapp-django.git
 cd docker-webapp-django
 docker-compose up
 ```
