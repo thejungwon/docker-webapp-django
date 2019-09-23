@@ -2,6 +2,7 @@
 Forked from: https://github.com/thejungwon/docker-webapp-django
 
 ## Prerequists
+- Clone this directory
 - Install docker for any desktop platforms (Linux, Windows, MacOS)
 - Open a shell in the cloned direcetory (the folder called pizza-ordering-system)
 - Type in 'docker-compose up' and wait until everything is up
