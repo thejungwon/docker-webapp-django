@@ -1,6 +1,4 @@
 # Pizza ordering system
-
-#### Origin
 Forked from: https://github.com/thejungwon/docker-webapp-django
 
 ## Prerequists
