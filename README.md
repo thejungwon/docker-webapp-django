@@ -1,77 +1,13 @@
-# Radix Django with PostgreSQL
+# Pizza ordering system
 
-One-minute deployment, simple but cool web-application.
+#### Origin
+Forked from: https://github.com/thejungwon/docker-webapp-django
 
-*It is not recommended to deploy a database to the instances, this example shows the way to handle the multi-container situation, especially, when one container(Django) strongly depends on the other container(database).*
-
-
-## Getting Started
-![Screen Shopt](images/main-screenshot.png?raw=true "Screen Shot")
-Two containers
-  * web app(Django)
-  * database(PostgreSQL)
-
-When we launch the application with `docker-composer`, it is not possible to predict the finishing time.
-This can be a big problem when one container has to be launched while the other container is properly running.
-
-In this example, PostgreSQL needs more time to be launched than the Django application when it is its first launch. However, the Django application needs to be connected with a database before it starts to run.
-
-In the dockerfile, we should run the container with some additional tactics like in `entry_point.sh`.
-
-```
-#!/bin/bash
-cd src
-python manage.py makemigrations
-
-#until it succeeds
-until python manage.py migrate; do
-  sleep 2
-  echo "Retry!";
-done
-
-python manage.py shell < init_admin.py
-python manage.py makemigrations app
-python manage.py migrate app
-echo "Django is ready.";
-python manage.py runserver 0.0.0.0:8000
-```
-
-
-
-
-### Prerequisites
-
-Make sure you have already installed both Docker Engine and Docker Compose.
-You don’t need to install Python or PostgreSQL, as both are provided by Docker images.
-
-```
-$ docker -v
-Docker version 18.03.1-ce, build 9ee9f40
-$ docker-compose -v
-docker-compose version 1.21.1, build 5a3f1a3
-```
-
-### Installing
-
-```
-git clone https://github.com/thejungwon/docker-webapp-django.git
-cd docker-webapp-django
-docker-compose up
-```
-
-## Running the tests
-
-TBD
-
-### Break down into end to end tests
-
-TBD
-
-### And coding style tests
-
-TBD
-
-
+## Prerequists
+- Install docker for any desktop platforms (Linux, Windows, MacOS)
+- Open a shell in the cloned direcetory (the folder called pizza-ordering-system)
+- Type in 'docker-compose up' and wait until everything is up
+- The website should be reachable from any browsers at localhost:8000
 
 ## Built With
 
@@ -80,12 +16,3 @@ TBD
 * [Unsplash](https://source.unsplash.com/) - External API
 * [Bootstrap](https://getbootstrap.com/) - Front-end framework
 
-
-## Authors
-
-* **Jungwon Seo** - *Initial work* - [thejungwon](https://github.com/thejungwon)
-
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
