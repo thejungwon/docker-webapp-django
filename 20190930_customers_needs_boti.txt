@@ -1,0 +1,19 @@
+- Webes applikáció -> gyors és könnyen kezelhető
+- Admin oldal / customer oldal
+- Regisztráció lehetőség
+- Egyéni pizzák elkészítése, azok elmentésére lehetőség, hogy legközelebb már ne kelljen megadni
+- Utolsó 3 rendelés legyen elmentve
+- Kedvezmények bizonyos mennyiségű pizza/ár után
+- Email-ben rendelés visszaigazolása, számla küldése
+- Fizetési lehetőségek: szépkártya/bankkártya/kp
+- Allergén(ek) megadásával pizzák szűrése (pl. amiben van mogyoró az ne jelenjen meg, halványuljon el)
+- Akciók, ajánlások felhasználóknak
+- Csak magyarországon szállítunk ki
+- Magyar/angol nyelvű felület
+- GDPR-nak megfelelő adatkezelés
+- Nem szállítunk ki alkoholt
+- Rendelés maximum értéke 100 000 Ft
+- Feliratkozási lehetőség hirdetésekre, emailekre pl
+- Minél több feltét van egy pizzán, annál legyen drágább
+- Ha elfogy egy feltét, akkor azt a pizzát ne lehessen rendelni (admin oldalon kell kezelni)
+- Étel követése egyszerűen és olcsón
