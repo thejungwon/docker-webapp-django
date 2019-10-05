@@ -30,6 +30,7 @@
                 <li><a href="#" class="text-white">Follow on Twitter</a></li>
                 <li><a href="#" class="text-white">Like on Facebook</a></li>
                 <li><a href="#" class="text-white">Email me</a></li>
+
               </ul>
             </div>
           </div>
@@ -55,7 +56,11 @@
           <h1 class="jumbotron-heading">Simple Django Application</h1>
           <p class="lead text-muted">Refresh me! New image will be added!</p>
           <p>
-            <a href="/accounts/login" class="btn btn-primary my-2">Log in</a>
+            {% if user.is_authenticated %}
+              <a href="{% url 'logout' %}" class="btn btn-primary my-2">Log out</a>
+            {% else %}
+              <a href="{% url 'login' %}" class="btn btn-primary my-2">Log in</a>
+            {% endif %}
             <a href="/admin" class="btn btn-primary my-2">Go to Admin</a>
 
 
