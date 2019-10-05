@@ -1,0 +1,11 @@
+<!-- templates/registration/login.html -->
+<head>
+  <title>Login</title>
+</head>
+
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %} <!-- To prevent CSRF Attack. Do NOT delete it-->
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+</form>
