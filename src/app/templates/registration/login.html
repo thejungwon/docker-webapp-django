@@ -9,3 +9,6 @@
   {{ form.as_p }}
   <button type="submit">Login</button>
 </form>
+<form action="{% url 'password_reset' %}">
+  <input type="submit" value="Reset password" />
+</form>

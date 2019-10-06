@@ -57,6 +57,7 @@
           <p class="lead text-muted">Refresh me! New image will be added!</p>
           <p>
             {% if user.is_authenticated %}
+              <a href="{% url 'password_reset' %}" class="btn btn-primary my-2">Reset password</a>
               <a href="{% url 'logout' %}" class="btn btn-primary my-2">Log out</a>
             {% else %}
               <a href="{% url 'signup' %}" class="btn btn-primary my-2">Sign up</a>
