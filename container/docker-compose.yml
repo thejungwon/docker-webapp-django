@@ -2,9 +2,7 @@ version: '3.3'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: pizza-django
     volumes:
       - ../:/usr/src/app
     expose:
@@ -14,8 +12,6 @@ services:
     links:
       - postgres
   postgres:
-    build:
-      context: ./postgres
-      dockerfile: Dockerfile
+    image: postgres:latest
     ports:
       - "5432:5432"
