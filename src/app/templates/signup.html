@@ -1,0 +1,13 @@
+<!-- templates/signup.html -->
+<head>
+  <title>Sign up</title>
+</head>
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %} <!-- To prevent CSRF Attack. Do NOT delete it-->
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+  </form>
+{% endblock %}
