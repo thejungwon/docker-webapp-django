@@ -1,0 +1,38 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/album.css' %}">
+    <title>Hello, Pizzas!</title>
+</head>
+<body>
+
+<header>
+    <h1>Pizzák</h1>
+</header>
+
+<main role="main">
+
+    <section class="jumbotron text-center">
+        <div class="container">
+            {% for pizza in pizzas %}
+            <div>
+                <h2>{{ pizza.name }}</h2>
+                <p>{{ pizza.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+</main>
+</body>
+</html>
