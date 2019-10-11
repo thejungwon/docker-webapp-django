@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
+from django.utils.translation import gettext as _
 from .models import *
 
 import datetime
@@ -28,7 +29,10 @@ def pizzas(request):
     Pizza(name="Extra finom", description="Nagyon finom pizza, belekóstolsz, vége. Még a tányért is...").save()
     Pizza(name="SAMPLE TEXT", description="SAMPLE PIZZA").save()
     pizzas = Pizza.objects.all().order_by('-name')
-    return render(request, 'pizza/pizzexample.html', {'pizzas': pizzas})
+
+    test_translate = _("(teszt fordítás)")
+    return render(request, 'pizza/pizzexample.html', {'pizzas': pizzas,
+    'test': test_translate,})
 
 
 def random_picture():
