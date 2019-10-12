@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/album.css' %}" >
-    <title>Hello, world!</title>
+    <title>Pizza - Home</title>
   </head>
   <body>
     {% include 'layouts/navbar.html' %}
@@ -19,51 +19,7 @@
     
     <main role="main">
 
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Simple Django Application</h1>
-          <p class="lead text-muted">Refresh me! New image will be added!</p>
-          <p>
-            {% if user.is_authenticated %}
-              <a href="{% url 'password_reset' %}" class="btn btn-primary my-2">Reset password</a>
-              <a href="{% url 'logout' %}" class="btn btn-primary my-2">Log out</a>
-            {% else %}
-              <a href="{% url 'signup' %}" class="btn btn-primary my-2">Sign up</a>
-              <a href="{% url 'login' %}" class="btn btn-primary my-2">Log in</a>
-            {% endif %}
-            <a href="/admin" class="btn btn-primary my-2">Go to Admin</a>
-
-
-          </p>
-          <span>(ID:admin, PW:password)</span>
-        </div>
-      </section>
-
-      <div class="album py-5 bg-light">
-        <div class="container">
-
-          <div class="row">
-            {% for post in posts %}
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="data:image/png;base64,{{post.photo}}" alt="Card image cap">
-                <div class="card-body">
-                  <p class="card-text">{{post.description}}</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div>
-                    <small class="text-muted">{{post.date}}</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-
-          </div>
-        </div>
-      </div>
+      <h1>Home page</h1>
 
     </main>
 

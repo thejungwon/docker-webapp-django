@@ -11,33 +11,28 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/album.css' %}" >
-    <title>Hello, world!</title>
+    <title>Pizza - Profile</title>
   </head>
   <body>
     {% include 'layouts/navbar.html' %}
     {% block content %}{% endblock %}
 
     <main role="main">
-        <section class="jumbotron text-center">
-            <div class="container">
-            <h1 class="jumbotron-heading">Simple Django Application</h1>
-            <p class="lead text-muted">Refresh me! New image will be added!</p>
-            <p>
-                {% if user.is_authenticated %}
-                <a href="{% url 'password_reset' %}" class="btn btn-primary my-2">Reset password</a>
-                <a href="{% url 'logout' %}" class="btn btn-primary my-2">Log out</a>
-                {% else %}
-                <a href="{% url 'signup' %}" class="btn btn-primary my-2">Sign up</a>
-                <a href="{% url 'login' %}" class="btn btn-primary my-2">Log in</a>
-                {% endif %}
-                <a href="/admin" class="btn btn-primary my-2">Go to Admin</a>
-            </p>
-            <span>(ID:admin, PW:password)</span>
-            </div>
-        </section>
+    
+        <h1>Profile</h1>
+
     </main>
 
-    <h1>Profile</h1>
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
