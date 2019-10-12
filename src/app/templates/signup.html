@@ -18,25 +18,7 @@
     {% block content %}{% endblock %}
 
     <main role="main">
-        <section class="jumbotron text-center">
-            <div class="container">
-            <h1 class="jumbotron-heading">Simple Django Application</h1>
-            <p class="lead text-muted">Refresh me! New image will be added!</p>
-            <p>
-                {% if user.is_authenticated %}
-                <a href="{% url 'password_reset' %}" class="btn btn-primary my-2">Reset password</a>
-                <a href="{% url 'logout' %}" class="btn btn-primary my-2">Log out</a>
-                {% else %}
-                <a href="{% url 'signup' %}" class="btn btn-primary my-2">Sign up</a>
-                <a href="{% url 'login' %}" class="btn btn-primary my-2">Log in</a>
-                {% endif %}
-                <a href="/admin" class="btn btn-primary my-2">Go to Admin</a>
-            </p>
-            <span>(ID:admin, PW:password)</span>
-            </div>
-        </section>
-    
-
+	
 	  <h2>Sign up</h2>
 	  <form method="post">
 	    {% csrf_token %} <!-- To prevent CSRF Attack. Do NOT delete it-->
@@ -44,7 +26,7 @@
 	    <button type="submit">Sign up</button>
 	  </form>
 
-	  </main>
+	 </main>
 
 	 <footer class="text-muted">
       <div class="container">

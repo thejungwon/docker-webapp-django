@@ -11,33 +11,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/album.css' %}" >
-    <title>Hello, world!</title>
+    <title>My Pizza website!</title>
   </head>
   <body>
     {% include 'layouts/navbar.html' %}
     {% block content %}{% endblock %}
     
     <main role="main">
-
-      <section class="jumbotron text-center">
-        <div class="container">
-          <h1 class="jumbotron-heading">Simple Django Application</h1>
-          <p class="lead text-muted">Refresh me! New image will be added!</p>
-          <p>
-            {% if user.is_authenticated %}
-              <a href="{% url 'password_reset' %}" class="btn btn-primary my-2">Reset password</a>
-              <a href="{% url 'logout' %}" class="btn btn-primary my-2">Log out</a>
-            {% else %}
-              <a href="{% url 'signup' %}" class="btn btn-primary my-2">Sign up</a>
-              <a href="{% url 'login' %}" class="btn btn-primary my-2">Log in</a>
-            {% endif %}
-            <a href="/admin" class="btn btn-primary my-2">Go to Admin</a>
-
-
-          </p>
-          <span>(ID:admin, PW:password)</span>
-        </div>
-      </section>
 
       <h1>Home page</h1>
 
