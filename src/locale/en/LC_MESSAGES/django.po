@@ -1,0 +1,11 @@
+#: app/templates/pizza/pizzexample.html:37
+msgid "Magyar szöveg..."
+msgstr "English text..."
+
+#: app/views.py:33
+msgid "(teszt fordítás)"
+msgstr "(test translate)"
+
+#: app/urls.py:9
+msgid "pizzak/"
+msgstr "pizzas/"
