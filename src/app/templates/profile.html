@@ -11,24 +11,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/album.css' %}" >
-    <title>Pizza - Sign up!</title>
+    <title>Pizza - Profile</title>
   </head>
   <body>
     {% include 'layouts/navbar.html' %}
     {% block content %}{% endblock %}
 
     <main role="main">
-	
-	  <h2>Sign up</h2>
-	  <form method="post">
-	    {% csrf_token %} <!-- To prevent CSRF Attack. Do NOT delete it-->
-	    {{ form.as_p }}
-	    <button type="submit">Sign up</button>
-	  </form>
+    
+        <h1>Profile</h1>
 
-	 </main>
+    </main>
 
-	 <footer class="text-muted">
+    <footer class="text-muted">
       <div class="container">
         <p class="float-right">
           <a href="#">Back to top</a>

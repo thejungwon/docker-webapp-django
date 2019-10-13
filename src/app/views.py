@@ -41,3 +41,15 @@ def random_picture():
     encoded_string = base64.b64encode(response.content)
     del response
     return encoded_string.decode('ascii')
+
+def profile(request):
+    context = {}
+    return render(request, 'profile.html', context)
+
+def pizzalist(request):
+    context = {}
+    return render(request, 'pizzalist.html', context)
+
+def myorders(request):
+    context = {}
+    return render(request, 'myorders.html', context)
