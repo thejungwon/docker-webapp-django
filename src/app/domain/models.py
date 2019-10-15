@@ -247,6 +247,7 @@ class FoodProduct(Product):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     Vegetarian = models.BooleanField()
     GlutenFree = models.BooleanField()
+	UserCreated = models.BooleanField()
 
     class Meta:
         pass
@@ -281,6 +282,27 @@ class DrinkProduct(Product):
 
     def get_update_url(self):
         return reverse("PizzaDeliverySystem_DrinkProduct_update", args=(self.pk,))
+
+class UserPizza(models.Model):
+
+	# Relationships
+	O_T_O_User_UserPizza = models.OneToOneField("undefined.User")
+	O_T_O_FoodProduct_UserPizza = models.OneToOneField("undefined.FoodProduct")
+	
+    #  Fields
+    Nickname = models.TextField(max_length=50)
+
+    class Meta:
+        pass
+
+    def __str__(self):
+        return str(self.pk)
+
+    def get_absolute_url(self):
+        return reverse("PizzaDeliverySystem_UserPizza_detail", args=(self.pk,))
+
+    def get_update_url(self):
+        return reverse("PizzaDeliverySystem_UserPizza_update", args=(self.pk,))
 
 
 class User(AbstractBaseUser):

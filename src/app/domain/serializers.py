@@ -132,6 +132,7 @@ class FoodProductSerializer(serializers.ModelSerializer):
             "created",
             "Vegetarian",
             "GlutenFree",
+            "UserCreated",
         ]
 
 class DrinkProductSerializer(serializers.ModelSerializer):
@@ -145,6 +146,14 @@ class DrinkProductSerializer(serializers.ModelSerializer):
             "created",
             "SugarContent",
         ]
+		
+class UserPizzaSerializer(serializers.ModelSerializer):
+
+	class Meta:
+		model = models.UserPizza
+		fields = [
+			"Nickname",
+		]
 
 class UserSerializer(serializers.ModelSerializer):
 
