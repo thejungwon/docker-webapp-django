@@ -11,22 +11,126 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{% static 'css/album.css' %}" >
-    <title>Pizza - My orders</title>
+	
+	<title>Pizza ordering system</title>
+	
   </head>
   <body>
     {% include 'layouts/navbar.html' %}
     {% block content %}{% endblock %}
 
     <main role="main">
-        <h1>My orders</h1>
+        <h1 class="text-center">My previous orders</h1>
+        <section class="jumbotron text-center">
+        <div class="container bg-dark text-light border rounded mb-5">
+			<div class="row mb-3 mt-3 ml-1">
+				<div class="col-3">
+					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
+				</div>
+				<div class="col-9">
+					<div class="row"><h3>Pizzeria XYZ</h3></div>
+					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
+				</div>
+			</div>
+			<div class="row mb-3 mt-3 ml-1">
+				<div class="col-8 bg-light text-dark border rounded">
+					<div class="row">
+						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
+						<div class="col text-right">1390 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
+						<div class="col text-right">1290 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Shipping cost</div>
+						<div class="col text-right">300 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Total</div>
+						<div class="col text-right">2980 Ft</div>
+					</div>
+				</div>
+				<div class="col-4">
+					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
+				</div>
+			</div>
+        </div>
+    <div class="container bg-dark text-light border rounded mb-5">
+			<div class="row mb-3 mt-3 ml-1">
+				<div class="col-3">
+					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
+				</div>
+				<div class="col-9">
+					<div class="row"><h3>Pizzeria XYZ</h3></div>
+					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
+				</div>
+			</div>
+			<div class="row mb-3 mt-3 ml-1">
+				<div class="col-8 bg-light text-dark border rounded">
+					<div class="row">
+						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
+						<div class="col text-right">1390 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
+						<div class="col text-right">1290 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Shipping cost</div>
+						<div class="col text-right">300 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Total</div>
+						<div class="col text-right">2980 Ft</div>
+					</div>
+				</div>
+				<div class="col-4">
+					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
+				</div>
+			</div>
+        </div>
+    <div class="container bg-dark text-light border rounded mb-5">
+			<div class="row mb-3 mt-3 ml-1">
+				<div class="col-3">
+					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
+				</div>
+				<div class="col-9">
+					<div class="row"><h3>Pizzeria XYZ</h3></div>
+					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
+				</div>
+			</div>
+			<div class="row mb-3 mt-3 ml-1">
+				<div class="col-8 bg-light text-dark border rounded">
+					<div class="row">
+						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
+						<div class="col text-right">1390 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
+						<div class="col text-right">1290 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Shipping cost</div>
+						<div class="col text-right">300 Ft</div>
+					</div>
+					<div class="row border-top">
+						<div class="col-6 text-left">Total</div>
+						<div class="col text-right">2980 Ft</div>
+					</div>
+				</div>
+				<div class="col-4">
+					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
+				</div>
+			</div>
+        </div>
+    </section>
     </main>
     <footer class="text-muted">
       <div class="container">
         <p class="float-right">
           <a href="#">Back to top</a>
         </p>
-        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
       </div>
     </footer>
 
