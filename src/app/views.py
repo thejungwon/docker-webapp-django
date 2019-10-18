@@ -52,7 +52,3 @@ def pizzalist(request):
 def myorders(request):
     context = {"myorders_page": "active"}
     return render(request, 'myorders.html', context)
-
-def myorders(request):
-    context = {"myorders_page": "active"}
-    return render(request, 'myorders.html', context)
