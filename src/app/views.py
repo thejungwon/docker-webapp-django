@@ -15,13 +15,12 @@ class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
-
     
 def index(request):
     p = Post(date=datetime.datetime.now(), photo=random_picture())
     p.save(force_insert=True)
     posts = Post.objects.filter().order_by('-date')
-    return render(request, 'index.html', {'posts': posts})
+    return render(request, 'index.html', {'posts': posts, "home_page": "active"})
 
 
 def pizzas(request):
@@ -43,13 +42,17 @@ def random_picture():
     return encoded_string.decode('ascii')
 
 def profile(request):
-    context = {}
+    context = {"profile_page": "active"}
     return render(request, 'profile.html', context)
 
 def pizzalist(request):
-    context = {}
+    context = {"pizzalist_page": "active"}
     return render(request, 'pizzalist.html', context)
 
 def myorders(request):
-    context = {}
+    context = {"myorders_page": "active"}
+    return render(request, 'myorders.html', context)
+
+def myorders(request):
+    context = {"myorders_page": "active"}
     return render(request, 'myorders.html', context)

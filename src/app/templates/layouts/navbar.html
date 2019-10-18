@@ -1,39 +1,49 @@
-<header>
-    <div class="collapse bg-dark" id="navbarHeader">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-md-7 py-4">
-                    <h4 class="text-white">About</h4>
-                    <p class="text-muted">Pizza ordering sytem, etc random text here.</p>
-                </div>
-                <div class="col-sm-4 offset-md-1 py-4">
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                        <li><a href="#" class="text-white">Like on Facebook</a></li>
-                        <li><a href="#" class="text-white">Email me</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="navbar navbar-dark bg-dark box-shadow">
-        <div class="container d-flex justify-content-between">
-        <a class="navbar-brand" href="{% url 'index' %}">Home </a>
-        <a class="navbar-brand" href="{% url 'pizzalist' %}">Pizza's </a>
-        {% if user.is_authenticated %}
-            <a class="navbar-brand" href="{% url 'profile' %}">Profile </a>
-            <a class="navbar-brand" href="{% url 'myorders' %}">My orders </a>
-        {% endif %}
-        <p>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFF8DC">
+        
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="navbar-brand {{ home_page }} ">
+                <a class="nav-link" href="{% url 'index' %}">Home </a>
+            </li>
+            <li class="navbar-brand">
+                <a class="nav-link {{ pizzalist_page }}" href="{% url 'pizzalist' %}">Pizzas </a>
+            </li>
             {% if user.is_authenticated %}
-              <a href="{% url 'password_reset' %}" class="btn btn-primary my-2">Reset password</a>
-              <a href="{% url 'logout' %}" class="btn btn-primary my-2">Log out</a>
+                <li class=navbar-brand>
+                    <a class="nav-link {{ profile_page }}" href="{% url 'profile' %}">Profile </a>
+                </li>
+                <li class="navbar-brand">
+                    <a class="nav-link {{ myorders_page }}" href="{% url 'myorders' %}">My orders </a>
+                </li>
+                <li class="navbar-brand"> 
+                    <a class="nav-link {{ resetpw_page }}" href="{% url 'password_reset' %}" >Reset password</a>
+                </li>   
+                <li class="navbar-brand">   
+                    <a class="nav-link" href="{% url 'logout' %}" >Log out</a>
+                </li>
             {% else %}
-              <a href="{% url 'signup' %}" class="btn btn-primary my-2">Sign up</a>
-              <a href="{% url 'login' %}" class="btn btn-primary my-2">Log in</a>
+                <li class="navbar-brand">
+                    <a class="nav-link {{ signup_page }}" href="{% url 'signup' %}">Sign up</a>
+                </li>  
+                <li class="navbar-brand">
+                    <a class="nav-link {{ login_page }}" href="{% url 'login' %}">Log in</a>
+                </li>
             {% endif %}
-            <a href="/admin" class="btn btn-primary my-2">Go to Admin</a>
-        </p>
-        </div>
+            <li class="navbar-brand">
+                <a class="nav-link" href="/admin">Go to Admin</a>
+            </li>
+            <li class="navbar-brand dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Contact
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Follow on Twitter</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Like on Facebook</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">Email me</a>
+                </div>
+            </li>
+        </ul>
     </div>
-</header>
+</nav>
