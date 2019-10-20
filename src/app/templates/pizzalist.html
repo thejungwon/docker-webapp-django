@@ -2,39 +2,149 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="{% static 'css/album.css' %}" >
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../static/css/pizzalist.css">
+    <link rel="stylesheet" href="{% static 'css/album.css' %}">
     <title>Pizza - Pizzas</title>
-  </head>
-  <body>
-    {% include 'layouts/navbar.html' %}
-    {% block content %}{% endblock %}
+</head>
+<body>
+{% include 'layouts/navbar.html' %}
+{% block content %}{% endblock %}
+<main role="main">
+    <div class="input-group mb-3 corner">
+        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+        </div>
+    </div>
+    <!--    <h1>Pizzalist</h1>-->
+    <div class="fluid-container container-background">
+        <div class="row">
+            <div class="col-2 side-menu center-block">
+                <button type="button" class="btn side-btn btn-lg btn-block">Pizza</button>
+                <button type="button" class="btn side-btn btn-lg btn-block">Pizza</button>
+                <button type="button" class="btn side-btn btn-lg btn-block">Pizza</button>
+                <button type="button" class="btn side-btn btn-lg btn-block">Pizza</button>
+                <button type="button" class="btn side-btn btn-lg btn-block">Pizza</button>
+                <button type="button" class="btn side-btn btn-lg btn-block">Pizza</button>
+                <div class="card shopping-cart">
+                    <div class="card-body">
+                        <h5 class="card-title">Shopping cart:</h5>
+                        <p class="card-text">0 huf</p>
+                        <a href="#" class="btn btn-secondary center">Pay</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="checkbox-filter">
+                    <div class="allergens allergene-title">Allergens:</div>
+                    <div class="allergens">
+                        <label class="allergene-label">allergene1:<input type="checkbox" name="vehicle1"
+                                                                         value="allergene1"></label>
+                        <label class="allergene-label">allergene1:<input type="checkbox" name="vehicle1"
+                                                                         value="allergene1"></label>
+                        <label class="allergene-label">allergene1:<input type="checkbox" name="vehicle1"
+                                                                         value="allergene1"></label>
+                        <label class="allergene-label">allergene1:<input type="checkbox" name="vehicle1"
+                                                                         value="allergene1"></label>
+                        <label class="allergene-label">allergene1:<input type="checkbox" name="vehicle1"
+                                                                         value="allergene1"></label>
+                    </div>
+                </div>
+                <div class="pizza-list">
+<!--                    for-->
+                    <div class="card mb-3 pizza-card center">
+                        <div class="row no-gutters">
+                            <div class="col-md-2">
+                                <img src="https://source.unsplash.com/random/100x100" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body pizza-body">
+                                    <h5 class="card-title">Pizza name</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.
+                                        This content is a little bit longer. This content is a little bit longer.</p>
+                                    <p class="card-text payment-row">
+                                        <span>2000 huf</span>
+                                        <span class="float-right"><button>Buy</button></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!--                    endfor-->
+                    <div class="card mb-3 pizza-card center">
+                        <div class="row no-gutters">
+                            <div class="col-md-2">
+                                <img src="https://source.unsplash.com/random/100x100" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body pizza-body">
+                                    <h5 class="card-title">My Pizza name</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.
+                                        This content is a little bit longer. This content is a little bit longer.</p>
+                                    <p class="card-text payment-row">
+                                        <span>2000 huf</span>
+                                        <span class="float-right"><button>Buy</button></span>
+                                        <span class="float-right"><button>Edit</button></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mb-3 pizza-card center">
+                        <div class="row no-gutters">
+                            <div class="col-md-2">
+                                <img src="https://source.unsplash.com/random/100x100" class="card-img" alt="...">
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card-body pizza-body">
+                                    <h5 class="card-title">My Pizza name</h5>
+                                    <p class="card-text">This is a wider card with supporting text below as a natural
+                                        lead-in to additional content. This content is a little bit longer.
+                                        This content is a little bit longer. This content is a little bit longer.</p>
+                                    <p class="card-text payment-row">
+                                        <span>2000 huf</span>
+                                        <span class="float-right"><button>Buy</button></span>
+                                        <span class="float-right"><button>Edit</button></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 
-    <main role="main">
-        
-        <h1>Pizzalist</h1>
-
-    </main>
-
-    <footer class="text-muted">
-      <div class="container">
+<footer class="text-muted">
+    <div class="container">
         <p class="float-right">
-          <a href="#">Back to top</a>
+            <a href="#">Back to top</a>
         </p>
         <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
-      </div>
-    </footer>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting
+            started guide</a>.</p>
+    </div>
+</footer>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
 </html>

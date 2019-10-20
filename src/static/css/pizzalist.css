@@ -1,0 +1,80 @@
+:root {
+    --main-btn-bg-color: coral;
+    --main-bg-color: #525252;
+}
+.row{
+    max-width: 100%;
+}
+/*Side menu elements*/
+.side-btn{
+    background-color: var(--main-btn-bg-color);
+    height: 3rem;
+}
+.side-menu{
+    background-color: #cbcbcb;
+    border-radius: 0;
+}
+.side-menu button{
+    border-radius: initial;
+}
+.shopping-cart{
+    margin: 0.4rem;
+    border-radius: 3rem
+}
+.card-body{
+    margin-left: 1rem;
+    width: 100%;
+}
+.center{
+    margin: auto;
+}
+/*Allergens filter*/
+.allergens {
+    display: inline-block;
+    color: white;
+}
+.allergene-label{
+    margin-left: 1rem;
+    display: inline-block;
+}
+.allergene-label input{
+    margin-left: 0.3rem;
+    vertical-align: middle;
+}
+.allergene-title{
+    font-size: x-large;
+}
+/*Pizzas*/
+.container-background{
+    background-color: var(--main-bg-color);
+}
+.pizza-list{
+    margin-top: 2rem;
+}
+.pizza-card{
+    margin-top: 2%;
+    width: 80%;
+    height: 42%;
+}
+.pizza-card img{
+    display: block;
+    margin-top: 7px;
+    margin-left: 10px;
+    width: 90%;
+}
+.payment-row{
+    margin-top: 50px;
+}
+.payment-row button{
+    margin-left: 20px;
+}
+.pizza-body{
+    padding-right: 10%;
+}
+/*Corner search*/
+.corner{
+    width: 19rem;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
