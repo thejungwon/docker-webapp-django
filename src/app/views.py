@@ -1,15 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+import datetime
+import base64
+import requests
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.utils.translation import gettext as _
 from .models import *
-
-import datetime
-import base64
-import requests
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import *
+# pylint: disable=relative-beyond-top-level
+from .models import Post, Pizza
 
 # Register your models here.
 admin.site.register(Post)

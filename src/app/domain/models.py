@@ -29,7 +29,8 @@ class Product(models.Model):
 class EmailTemplate(models.Model):
 
     #  Relationships
-    M_T_M_Priviliges_Emails = models.ManyToManyField("undefined.PriviligeLevel")
+    M_T_M_Priviliges_Emails = models.ManyToManyField(
+        "undefined.PriviligeLevel")
 
     #  Fields
     created = models.DateTimeField(auto_now_add=True, editable=False)
@@ -52,7 +53,8 @@ class EmailTemplate(models.Model):
 class PriviligeLevel(models.Model):
 
     #  Relationships
-    M_T_M_Priviligies_Emails2 = models.ManyToManyField("undefined.EmailTemplate")
+    M_T_M_Priviligies_Emails2 = models.ManyToManyField(
+        "undefined.EmailTemplate")
 
     #  Fields
     Name = models.TextField(max_length=50)
@@ -103,9 +105,12 @@ class Transaction(models.Model):
 class OrderItem(models.Model):
 
     #  Relationships
-    O_T_M_Order_OrderItems = models.ForeignKey("undefined.Order", on_delete=models.CASCADE)
-    O_T_M_Product_OrderItems2 = models.ForeignKey("undefined.FoodProduct", on_delete=models.CASCADE)
-    O_T_M_Product_OrderItems = models.ForeignKey("undefined.DrinkProduct", on_delete=models.CASCADE)
+    O_T_M_Order_OrderItems = models.ForeignKey(
+        "undefined.Order", on_delete=models.CASCADE)
+    O_T_M_Product_OrderItems2 = models.ForeignKey(
+        "undefined.FoodProduct", on_delete=models.CASCADE)
+    O_T_M_Product_OrderItems = models.ForeignKey(
+        "undefined.DrinkProduct", on_delete=models.CASCADE)
 
     #  Fields
     Discount = models.FloatField()
@@ -128,7 +133,8 @@ class OrderItem(models.Model):
 class Address(models.Model):
 
     #  Relationships
-    O_T_M_User_Adresses = models.ForeignKey("auth.User", on_delete=models.CASCADE)
+    O_T_M_User_Adresses = models.ForeignKey(
+        "auth.User", on_delete=models.CASCADE)
 
     #  Fields
     last_updated = models.DateTimeField(auto_now=True, editable=False)
@@ -209,8 +215,10 @@ class Order(models.Model):
 
     #  Relationships
     O_T_O_Transaction_Order = models.OneToOneField("undefined.Transaction")
-    Courier_Orders = models.ForeignKey("undefined.Courier", on_delete=models.CASCADE)
-    O_T_M_User_Orders = models.ForeignKey("auth.User", on_delete=models.CASCADE)
+    Courier_Orders = models.ForeignKey(
+        "undefined.Courier", on_delete=models.CASCADE)
+    O_T_M_User_Orders = models.ForeignKey(
+        "auth.User", on_delete=models.CASCADE)
 
     #  Fields
     DeliveryDate = models.DateTimeField()
@@ -239,7 +247,8 @@ class Order(models.Model):
 class FoodProduct(Product):
 
     #  Relationships
-    FoodProduct_To_Ingredient_2 = models.ManyToManyField("undefined.Ingredient")
+    FoodProduct_To_Ingredient_2 = models.ManyToManyField(
+        "undefined.Ingredient")
 
     #  Fields
     Vegan = models.BooleanField()
@@ -283,6 +292,7 @@ class DrinkProduct(Product):
     def get_update_url(self):
         return reverse("PizzaDeliverySystem_DrinkProduct_update", args=(self.pk,))
 
+
 class UserPizza(models.Model):
 
     # Relationships
@@ -308,7 +318,8 @@ class UserPizza(models.Model):
 class User(AbstractBaseUser):
 
     #  Relationships
-    M_T_O_PriviligeLevel_User = models.ForeignKey("undefined.PriviligeLevel", on_delete=models.CASCADE)
+    M_T_O_PriviligeLevel_User = models.ForeignKey(
+        "undefined.PriviligeLevel", on_delete=models.CASCADE)
 
     #  Fields
     emailToken = models.TextField(max_length=200)
