@@ -247,7 +247,7 @@ class FoodProduct(Product):
     created = models.DateTimeField(auto_now_add=True, editable=False)
     Vegetarian = models.BooleanField()
     GlutenFree = models.BooleanField()
-	UserCreated = models.BooleanField()
+    UserCreated = models.BooleanField()
 
     class Meta:
         pass
@@ -285,11 +285,11 @@ class DrinkProduct(Product):
 
 class UserPizza(models.Model):
 
-	# Relationships
-	O_T_O_User_UserPizza = models.OneToOneField("undefined.User")
-	O_T_O_FoodProduct_UserPizza = models.OneToOneField("undefined.FoodProduct")
-	
-    #  Fields
+    # Relationships
+    O_T_O_User_UserPizza = models.OneToOneField("undefined.User")
+    O_T_O_FoodProduct_UserPizza = models.OneToOneField("undefined.FoodProduct")
+
+    # Fields
     Nickname = models.TextField(max_length=50)
 
     class Meta:
