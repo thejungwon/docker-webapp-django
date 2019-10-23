@@ -1,9 +1,9 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.base_user import AbstractBaseUser
 
 
 class Product(models.Model):
-
     #  Fields
     Name = models.TextField(max_length=100)
     Description = models.TextField(max_length=300)
@@ -27,7 +27,6 @@ class Product(models.Model):
 
 
 class EmailTemplate(models.Model):
-
     #  Relationships
     M_T_M_Priviliges_Emails = models.ManyToManyField(
         "undefined.PriviligeLevel")
@@ -51,7 +50,6 @@ class EmailTemplate(models.Model):
 
 
 class PriviligeLevel(models.Model):
-
     #  Relationships
     M_T_M_Priviligies_Emails2 = models.ManyToManyField(
         "undefined.EmailTemplate")
@@ -76,7 +74,6 @@ class PriviligeLevel(models.Model):
 
 
 class Transaction(models.Model):
-
     #  Relationships
     O_T_O_Order_Transaction = models.OneToOneField("undefined.Order")
 
@@ -103,7 +100,6 @@ class Transaction(models.Model):
 
 
 class OrderItem(models.Model):
-
     #  Relationships
     O_T_M_Order_OrderItems = models.ForeignKey(
         "undefined.Order", on_delete=models.CASCADE)
@@ -131,7 +127,6 @@ class OrderItem(models.Model):
 
 
 class Address(models.Model):
-
     #  Relationships
     O_T_M_User_Adresses = models.ForeignKey(
         "auth.User", on_delete=models.CASCADE)
@@ -159,7 +154,6 @@ class Address(models.Model):
 
 
 class Ingredient(models.Model):
-
     #  Relationships
     FoodProduct_To_Ingredient = models.ManyToManyField("undefined.FoodProduct")
 
@@ -190,7 +184,6 @@ class Ingredient(models.Model):
 
 
 class Courier(models.Model):
-
     #  Fields
     created = models.DateTimeField(auto_now_add=True, editable=False)
     Phone = models.TextField(max_length=30)
@@ -212,7 +205,6 @@ class Courier(models.Model):
 
 
 class Order(models.Model):
-
     #  Relationships
     O_T_O_Transaction_Order = models.OneToOneField("undefined.Transaction")
     Courier_Orders = models.ForeignKey(
@@ -245,7 +237,6 @@ class Order(models.Model):
 
 
 class FoodProduct(Product):
-
     #  Relationships
     FoodProduct_To_Ingredient_2 = models.ManyToManyField(
         "undefined.Ingredient")
@@ -272,7 +263,6 @@ class FoodProduct(Product):
 
 
 class DrinkProduct(Product):
-
     #  Fields
     ContainsCaffeine = models.BooleanField()
     last_updated = models.DateTimeField(auto_now=True, editable=False)
@@ -294,7 +284,6 @@ class DrinkProduct(Product):
 
 
 class UserPizza(models.Model):
-
     # Relationships
     O_T_O_User_UserPizza = models.OneToOneField("undefined.User")
     O_T_O_FoodProduct_UserPizza = models.OneToOneField("undefined.FoodProduct")
@@ -316,7 +305,6 @@ class UserPizza(models.Model):
 
 
 class User(AbstractBaseUser):
-
     #  Relationships
     M_T_O_PriviligeLevel_User = models.ForeignKey(
         "undefined.PriviligeLevel", on_delete=models.CASCADE)
