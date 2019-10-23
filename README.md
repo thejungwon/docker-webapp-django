@@ -10,6 +10,11 @@ Forked from: https://github.com/thejungwon/docker-webapp-django
 - Type in './run_app.sh' and wait until everything is up
 - The website should be reachable from any browsers at localhost:8000
 
+## Important
+- Please do not forget that Python usees **snake_case**!
+- Use a plugin in your IDE that understands `.editorconfig`
+- Apply formatting rules often!
+
 ## Built With
 
 * [Django](https://www.djangoproject.com/) - Web framework
