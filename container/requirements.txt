@@ -2,5 +2,4 @@ Django
 psycopg2-binary
 Pillow
 requests
-pylint
 djangorestframework
