@@ -2,3 +2,5 @@ Django
 psycopg2-binary
 Pillow
 requests
+djangorestframework
+requests

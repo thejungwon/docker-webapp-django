@@ -9,6 +9,12 @@ Forked from: https://github.com/thejungwon/docker-webapp-django
 - Type in './build_images.sh' and wait until the Docker images are ready (only neccessary for the first time and after changes in the Dockerfile)
 - Type in './run_app.sh' and wait until everything is up
 - The website should be reachable from any browsers at localhost:8000
+- For killing it, type in './kill_app.sh'
+
+## Important
+- Please do not forget that Python usees **snake_case**!
+- Use a plugin in your IDE that understands `.editorconfig`
+- Apply formatting rules often!
 
 ## Built With
 
