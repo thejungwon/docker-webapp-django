@@ -4,7 +4,6 @@ from . import models
 
 
 class ProductSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = models.Product
         fields = [
@@ -17,8 +16,8 @@ class ProductSerializer(serializers.ModelSerializer):
             "PublicProductId",
         ]
 
-class EmailTemplateSerializer(serializers.ModelSerializer):
 
+class EmailTemplateSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.EmailTemplate
         fields = [
@@ -27,8 +26,8 @@ class EmailTemplateSerializer(serializers.ModelSerializer):
             "Type",
         ]
 
-class PriviligeLevelSerializer(serializers.ModelSerializer):
 
+class PriviligeLevelSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.PriviligeLevel
         fields = [
@@ -38,8 +37,8 @@ class PriviligeLevelSerializer(serializers.ModelSerializer):
             "GrantsAccessTo",
         ]
 
-class TransactionSerializer(serializers.ModelSerializer):
 
+class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Transaction
         fields = [
@@ -52,8 +51,8 @@ class TransactionSerializer(serializers.ModelSerializer):
             "created",
         ]
 
-class OrderItemSerializer(serializers.ModelSerializer):
 
+class OrderItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.OrderItem
         fields = [
@@ -62,8 +61,8 @@ class OrderItemSerializer(serializers.ModelSerializer):
             "last_updated",
         ]
 
-class AddressSerializer(serializers.ModelSerializer):
 
+class AddressSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Address
         fields = [
@@ -76,8 +75,8 @@ class AddressSerializer(serializers.ModelSerializer):
             "StreetAndStreetNumber",
         ]
 
-class IngredientSerializer(serializers.ModelSerializer):
 
+class IngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Ingredient
         fields = [
@@ -94,8 +93,8 @@ class IngredientSerializer(serializers.ModelSerializer):
             "Vegan",
         ]
 
-class CourierSerializer(serializers.ModelSerializer):
 
+class CourierSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Courier
         fields = [
@@ -106,8 +105,8 @@ class CourierSerializer(serializers.ModelSerializer):
             "GpsCoordinates",
         ]
 
-class OrderSerializer(serializers.ModelSerializer):
 
+class OrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Order
         fields = [
@@ -122,8 +121,8 @@ class OrderSerializer(serializers.ModelSerializer):
             "ExpectedDeliveryDate",
         ]
 
-class FoodProductSerializer(serializers.ModelSerializer):
 
+class FoodProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.FoodProduct
         fields = [
@@ -135,8 +134,8 @@ class FoodProductSerializer(serializers.ModelSerializer):
             "UserCreated",
         ]
 
-class DrinkProductSerializer(serializers.ModelSerializer):
 
+class DrinkProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.DrinkProduct
         fields = [
@@ -146,17 +145,17 @@ class DrinkProductSerializer(serializers.ModelSerializer):
             "created",
             "SugarContent",
         ]
-		
-class UserPizzaSerializer(serializers.ModelSerializer):
 
-	class Meta:
-		model = models.UserPizza
-		fields = [
-			"Nickname",
-		]
+
+class UserPizzaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.UserPizza
+        fields = [
+            "Nickname",
+        ]
+
 
 class UserSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = models.User
         fields = [

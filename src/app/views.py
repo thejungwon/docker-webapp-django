@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+import datetime
+import base64
+import requests
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
@@ -7,21 +8,18 @@ from django.views import generic
 from django.utils.translation import gettext as _
 from .models import *
 
-import datetime
-import base64
-import requests
 
 class SignUp(generic.CreateView):
     form_class = UserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
 
-    
+
 def index(request):
     p = Post(date=datetime.datetime.now(), photo=random_picture())
     p.save(force_insert=True)
     posts = Post.objects.filter().order_by('-date')
-    return render(request, 'index.html', {'posts': posts})
+    return render(request, 'index.html', {'posts': posts, "home_page": "active"})
 
 
 def pizzas(request):
@@ -32,7 +30,7 @@ def pizzas(request):
 
     test_translate = _("(teszt fordítás)")
     return render(request, 'pizza/pizzexample.html', {'pizzas': pizzas,
-    'test': test_translate,})
+                                                      'test': test_translate, })
 
 
 def random_picture():
@@ -42,14 +40,17 @@ def random_picture():
     del response
     return encoded_string.decode('ascii')
 
+
 def profile(request):
-    context = {}
+    context = {"profile_page": "active"}
     return render(request, 'profile.html', context)
 
+
 def pizzalist(request):
-    context = {}
+    context = {"pizzalist_page": "active"}
     return render(request, 'pizzalist.html', context)
 
+
 def myorders(request):
-    context = {}
+    context = {"myorders_page": "active"}
     return render(request, 'myorders.html', context)

@@ -1,17 +1,18 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.base_user import AbstractBaseUser
 
+# Pay extra attention for using snake_case !! Things wont work otherwise. This is Python, not Java!
 
 class Product(models.Model):
-
     #  Fields
-    Name = models.TextField(max_length=100)
-    Description = models.TextField(max_length=300)
-    Size = models.TextField(max_length=100)
+    name = models.TextField(max_length=100)
+    description = models.TextField(max_length=300)
+    size = models.TextField(max_length=100)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    Price = models.FloatField()
-    PublicProductId = models.IntegerField()
+    price = models.FloatField()
+    public_product_id = models.IntegerField()
 
     class Meta:
         abstract = True
@@ -27,14 +28,13 @@ class Product(models.Model):
 
 
 class EmailTemplate(models.Model):
-
     #  Relationships
-    M_T_M_Priviliges_Emails = models.ManyToManyField("undefined.PriviligeLevel")
+    M_T_M_Priviliges_Emails = models.ManyToManyField("app.PriviligeLevel")
 
     #  Fields
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    Type = models.TextField(max_length=60)
+    type = models.TextField(max_length=60)
 
     class Meta:
         pass
@@ -50,15 +50,14 @@ class EmailTemplate(models.Model):
 
 
 class PriviligeLevel(models.Model):
-
     #  Relationships
-    M_T_M_Priviligies_Emails2 = models.ManyToManyField("undefined.EmailTemplate")
+    M_T_M_Priviligies_Emails2 = models.ManyToManyField(EmailTemplate)
 
     #  Fields
-    Name = models.TextField(max_length=50)
+    name = models.TextField(max_length=50)
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    GrantsAccessTo = models.TextField(max_length=100)
+    grants_access_to = models.TextField(max_length=100)
 
     class Meta:
         pass
@@ -74,17 +73,16 @@ class PriviligeLevel(models.Model):
 
 
 class Transaction(models.Model):
-
     #  Relationships
-    O_T_O_Order_Transaction = models.OneToOneField("undefined.Order")
+    O_T_O_Order_Transaction = models.OneToOneField("app.Order", on_delete=models.CASCADE)
 
     #  Fields
-    PaymentType = models.TextField(max_length=50)
+    payment_type = models.TextField(max_length=50)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    WasPayback = models.BooleanField()
-    PaymentOption = models.TextField(max_length=100)
-    Amount = models.FloatField()
-    Currency = models.TextField(max_length=30)
+    was_payback = models.BooleanField()
+    payment_option = models.TextField(max_length=100)
+    amount = models.FloatField()
+    currency = models.TextField(max_length=30)
     created = models.DateTimeField(auto_now_add=True, editable=False)
 
     class Meta:
@@ -101,14 +99,13 @@ class Transaction(models.Model):
 
 
 class OrderItem(models.Model):
-
     #  Relationships
-    O_T_M_Order_OrderItems = models.ForeignKey("undefined.Order", on_delete=models.CASCADE)
-    O_T_M_Product_OrderItems2 = models.ForeignKey("undefined.FoodProduct", on_delete=models.CASCADE)
-    O_T_M_Product_OrderItems = models.ForeignKey("undefined.DrinkProduct", on_delete=models.CASCADE)
+    O_T_M_Order_OrderItems = models.ForeignKey("app.Order", on_delete=models.CASCADE)
+    O_T_M_Product_OrderItems2 = models.ForeignKey("app.FoodProduct", on_delete=models.CASCADE)
+    O_T_M_Product_OrderItems = models.ForeignKey("app.DrinkProduct", on_delete=models.CASCADE)
 
     #  Fields
-    Discount = models.FloatField()
+    discount = models.FloatField()
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
 
@@ -126,18 +123,18 @@ class OrderItem(models.Model):
 
 
 class Address(models.Model):
-
     #  Relationships
-    O_T_M_User_Adresses = models.ForeignKey("auth.User", on_delete=models.CASCADE)
+    O_T_M_User_Adresses = models.ForeignKey(
+        "auth.User", on_delete=models.CASCADE)
 
     #  Fields
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    AddressType = models.TextField(max_length=30)
+    address_type = models.TextField(max_length=30)
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    DoorNumberAndOthers = models.TextField(max_length=200)
-    City = models.TextField(max_length=100)
-    ZipCode = models.TextField(max_length=20)
-    StreetAndStreetNumber = models.TextField(max_length=200)
+    door_number_and_others = models.TextField(max_length=200)
+    city = models.TextField(max_length=100)
+    zip_code = models.TextField(max_length=20)
+    street_and_street_number = models.TextField(max_length=200)
 
     class Meta:
         pass
@@ -153,22 +150,21 @@ class Address(models.Model):
 
 
 class Ingredient(models.Model):
-
     #  Relationships
-    FoodProduct_To_Ingredient = models.ManyToManyField("undefined.FoodProduct")
+    FoodProduct_To_Ingredient = models.ManyToManyField("app.FoodProduct")
 
     #  Fields
-    RemainingAmountInInventory = models.FloatField()
-    FatsPerServing = models.FloatField()
+    remaining_amount_in_inventory = models.FloatField()
+    fats_per_serving = models.FloatField()
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    PricePerServing = models.FloatField()
+    price_per_serving = models.FloatField()
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    isTopping = models.BooleanField()
-    ProteinPerServing = models.FloatField()
-    IsAllergen = models.BooleanField()
-    CarbsPerServing = models.FloatField()
-    DairyFree = models.BooleanField()
-    Vegan = models.BooleanField()
+    is_topping = models.BooleanField()
+    protein_per_serving = models.FloatField()
+    is_allergen = models.BooleanField()
+    carbs_per_serving = models.FloatField()
+    dairy_free = models.BooleanField()
+    vegan = models.BooleanField()
 
     class Meta:
         pass
@@ -184,13 +180,12 @@ class Ingredient(models.Model):
 
 
 class Courier(models.Model):
-
     #  Fields
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    Phone = models.TextField(max_length=30)
+    phone = models.TextField(max_length=30)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    Name = models.TextField(max_length=100)
-    GpsCoordinates = models.TextField(max_length=100)
+    name = models.TextField(max_length=100)
+    gps_coordinates = models.TextField(max_length=100)
 
     class Meta:
         pass
@@ -206,22 +201,21 @@ class Courier(models.Model):
 
 
 class Order(models.Model):
-
     #  Relationships
-    O_T_O_Transaction_Order = models.OneToOneField("undefined.Transaction")
-    Courier_Orders = models.ForeignKey("undefined.Courier", on_delete=models.CASCADE)
+    O_T_O_Transaction_Order = models.OneToOneField(Transaction, on_delete=models.CASCADE)
+    Courier_Orders = models.ForeignKey(Courier, on_delete=models.CASCADE)
     O_T_M_User_Orders = models.ForeignKey("auth.User", on_delete=models.CASCADE)
 
     #  Fields
-    DeliveryDate = models.DateTimeField()
+    delivery_date = models.DateTimeField()
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    ExpectedGivingToCourierDate = models.DateTimeField()
-    Status = models.TextField(max_length=30)
-    GivenToCourierDate = models.DateTimeField()
+    expected_giving_to_courier_date = models.DateTimeField()
+    status = models.TextField(max_length=30)
+    given_to_courier_date = models.DateTimeField()
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    Comment = models.TextField(max_length=300)
-    Discount = models.FloatField()
-    ExpectedDeliveryDate = models.DateTimeField()
+    comment = models.TextField(max_length=300)
+    discount = models.FloatField()
+    expected_delivery_date = models.DateTimeField()
 
     class Meta:
         pass
@@ -237,17 +231,16 @@ class Order(models.Model):
 
 
 class FoodProduct(Product):
-
     #  Relationships
-    FoodProduct_To_Ingredient_2 = models.ManyToManyField("undefined.Ingredient")
+    FoodProduct_To_Ingredient_2 = models.ManyToManyField(Ingredient)
 
     #  Fields
-    Vegan = models.BooleanField()
+    vegan = models.BooleanField()
     last_updated = models.DateTimeField(auto_now=True, editable=False)
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    Vegetarian = models.BooleanField()
-    GlutenFree = models.BooleanField()
-	UserCreated = models.BooleanField()
+    vegetarian = models.BooleanField()
+    gluten_free = models.BooleanField()
+    user_created = models.BooleanField()
 
     class Meta:
         pass
@@ -263,13 +256,12 @@ class FoodProduct(Product):
 
 
 class DrinkProduct(Product):
-
     #  Fields
-    ContainsCaffeine = models.BooleanField()
+    contains_caffeine = models.BooleanField()
     last_updated = models.DateTimeField(auto_now=True, editable=False)
-    Calories = models.IntegerField()
+    calories = models.IntegerField()
     created = models.DateTimeField(auto_now_add=True, editable=False)
-    SugarContent = models.IntegerField()
+    sugar_content = models.IntegerField()
 
     class Meta:
         pass
@@ -283,13 +275,13 @@ class DrinkProduct(Product):
     def get_update_url(self):
         return reverse("PizzaDeliverySystem_DrinkProduct_update", args=(self.pk,))
 
-class UserPizza(models.Model):
 
-	# Relationships
-	O_T_O_User_UserPizza = models.OneToOneField("undefined.User")
-	O_T_O_FoodProduct_UserPizza = models.OneToOneField("undefined.FoodProduct")
-	
-    #  Fields
+class UserPizza(models.Model):
+    # Relationships
+    O_T_O_User_UserPizza = models.OneToOneField("app.User", on_delete=models.CASCADE)
+    O_T_O_FoodProduct_UserPizza = models.OneToOneField(FoodProduct, on_delete=models.CASCADE)
+
+    # Fields
     Nickname = models.TextField(max_length=50)
 
     class Meta:
@@ -306,12 +298,11 @@ class UserPizza(models.Model):
 
 
 class User(AbstractBaseUser):
-
     #  Relationships
-    M_T_O_PriviligeLevel_User = models.ForeignKey("undefined.PriviligeLevel", on_delete=models.CASCADE)
+    M_T_O_PriviligeLevel_User = models.ForeignKey(PriviligeLevel, on_delete=models.CASCADE)
 
     #  Fields
-    emailToken = models.TextField(max_length=200)
+    email_token = models.TextField(max_length=200)
     created = models.DateTimeField(auto_now_add=True, editable=False)
     last_updated = models.DateTimeField(auto_now=True, editable=False)
 

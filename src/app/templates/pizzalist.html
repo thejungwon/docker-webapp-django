@@ -12,6 +12,9 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../../static/css/pizzalist.css">
     <link rel="stylesheet" href="{% static 'css/album.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/custom-pizza.css' %}" >
     <title>Pizza - Pizzas</title>
 </head>
 <body>
@@ -97,7 +100,9 @@
                                     <p class="card-text payment-row">
                                         <span>2000 huf</span>
                                         <span class="float-right"><button>Buy</button></span>
-                                        <span class="float-right"><button>Edit</button></span>
+                                        <span class="float-right">
+                                            <button data-toggle="modal" data-target="#customize-pizza-modal" type="button" class="btn btn-light">Edit</button>
+                                        </span>
                                     </p>
                                 </div>
                             </div>
@@ -117,7 +122,9 @@
                                     <p class="card-text payment-row">
                                         <span>2000 huf</span>
                                         <span class="float-right"><button>Buy</button></span>
-                                        <span class="float-right"><button>Edit</button></span>
+                                        <span class="float-right">
+                                            <button data-toggle="modal" data-target="#customize-pizza-modal" type="button" class="btn btn-light">Edit</button>
+                                        </span>
                                     </p>
                                 </div>
                             </div>
@@ -149,5 +156,314 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
-</body>
+
+    <!-- CUSTOMIZE PIZZA MODAL -->
+    <div class="modal fade" id="customize-pizza-modal" tabindex="-1" role="dialog" aria-labelledby="customize-pizza" aria-hidden="true">
+        <div class="modal-dialog custom-pizza-modal" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="customize-pizza">Customize your pizza</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+                <div class="col-8">
+                  <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active" id="nav-bases-tab" data-toggle="tab" href="#nav-bases" role="tab" aria-controls="nav-bases" aria-selected="true">Bases / Sauces</a>
+                      <a class="nav-item nav-link" id="nav-toppings-tab" data-toggle="tab" href="#nav-toppings" role="tab" aria-controls="nav-toppings" aria-selected="false">Toppings</a>
+                    </div>
+                  </nav>
+                  <div class="tab-content mt-4" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-bases" role="tabpanel" aria-labelledby="nav-bases-tab">
+                      <form>
+                        <div class="row">
+                          <div class="col-6">
+                            <p class="label">Size</p>
+                            <div class="form-group">
+                              <select class="form-control" id="size">
+                                <option value="30">30 cm</option>
+                                <option value="45">45 cm</option>
+                                <option value="60">60 cm</option>
+                              </select>
+                            </div>
+                            <p class="label">Base</p>
+                            <div class="form-group">
+                              <div class="form-check">
+                                <input class="form-check-input" name="pizza-base" type="radio" value="0" id="classic" checked>
+                                <label class="form-check-label" for="classic">
+                                  Classic
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" name="pizza-base" type="radio" value="1" id="italian">
+                                <label class="form-check-label" for="italian">
+                                  Italian
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" name="pizza-base" type="radio" value="2" id="lactose-free">
+                                <label class="form-check-label" for="lactose-free">
+                                  Lactose free
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <p class="label">Sauce</p>
+                            <div class="form-check">
+                              <input class="form-check-input" name="pizza-sauce" type="radio" value="0" id="sauce-0" checked>
+                              <label class="form-check-label" for="sauce-0">
+                                Sauce 1
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" name="pizza-sauce" type="radio" value="1" id="sauce-1">
+                              <label class="form-check-label" for="sauce-1">
+                                Sauce 2
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" name="pizza-sauce" type="radio" value="2" id="sauce-2">
+                              <label class="form-check-label" for="sauce-2">
+                                Sauce 3
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" name="pizza-sauce" type="radio" value="3" id="sauce-3" checked>
+                              <label class="form-check-label" for="sauce-3">
+                                Sauce 4
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" name="pizza-sauce" type="radio" value="4" id="sauce-4">
+                              <label class="form-check-label" for="sauce-4">
+                                Sauce 5
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" name="pizza-sauce" type="radio" value="5" id="sauce-5">
+                              <label class="form-check-label" for="sauce-5">
+                                Sauce 6
+                              </label>
+                            </div>
+                            <div class="form-check">
+                              <input class="form-check-input" name="pizza-sauce" type="radio" value="6" id="sauce-6">
+                              <label class="form-check-label" for="sauce-6">
+                                Sauce 7
+                              </label>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="tab-pane fade" id="nav-toppings" role="tabpanel" aria-labelledby="nav-toppings-tab">
+                      <form>
+                        <div class="row">
+                          <div class="col-6">
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                            <div class="form-row align-items-center">
+                              <div class="col-auto my-1">
+                                <label class="mr-sm-2" for="topping-label">Topping</label>
+                              </div>
+                              <div class="col-auto my-1">
+                                <select class="custom-select mr-sm-2" id="topping-label">
+                                  <option value="0">0</option>
+                                  <option value="1">1</option>
+                                  <option value="2">2</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-4 right-col">
+                  <div class="row">
+                    <div class="col-5">
+                      <img class="img-fluid" src="../../static/images/random-pizza.jpg" alt="Pizza" />
+                    </div>
+                    <div class="col-7">
+                      <p><b>Price:</b> 8$</p>
+                      <p>
+                        Toppings:
+                      </p>
+                      <ul>
+                        <li>mushroom x2 - 0.8$</li>
+                        <li>mushroom x2 - 0.8$</li>
+                        <li>mushroom x2 - 0.8$</li>
+                        <li>...</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="d-flex flex-row justify-content-end pt-4">
+                        <button type="submit" class="btn btn-primary float-right">Add to cart</button>
+                      </div>
+                    </div>
+                  </div>
+                  <hr />
+                  <div class="row">
+                    <div class="col-12">
+                      <form>
+                        <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" class="form-control" id="name" aria-describedby="namehelp" placeholder="Name">
+                          <small id="namehelp" class="form-text text-muted">The name of your custom pizza.</small>
+                        </div>
+                        <div class="d-flex flex-row justify-content-end">
+                          <button type="button" class="btn btn-primary float-right">Save pizza</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- CUSTOMIZE PIZZA MODAL END -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
