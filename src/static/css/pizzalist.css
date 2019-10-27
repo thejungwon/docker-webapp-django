@@ -2,9 +2,7 @@
     --main-btn-bg-color: coral;
     --main-bg-color: #525252;
 }
-.row{
-    max-width: 100%;
-}
+
 /*Side menu elements*/
 .side-btn{
     background-color: var(--main-btn-bg-color);
@@ -29,9 +27,11 @@
     margin: auto;
 }
 /*Allergens filter*/
+.checkbox-filter{
+    color: black;
+}
 .allergens {
     display: inline-block;
-    color: white;
 }
 .allergene-label{
     margin-left: 1rem;
@@ -46,8 +46,12 @@
 }
 /*Pizzas*/
 .container-background{
-    background-color: var(--main-bg-color);
+    /*background-color: var(--main-bg-color);*/
 }
+.row{
+    max-width: 100%;
+}
+
 .pizza-list{
     margin-top: 2rem;
 }
