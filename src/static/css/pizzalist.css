@@ -73,7 +73,6 @@
 }
 /*Corner search*/
 .corner{
-    width: 19rem;
-    position: initial;
+    width: 19rem!important;
     float: right;
 }
