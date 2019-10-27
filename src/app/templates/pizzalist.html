@@ -18,14 +18,9 @@
 {% include 'layouts/navbar.html' %}
 {% block content %}{% endblock %}
 <main role="main">
-    <div class="input-group mb-3 corner">
-        <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
-        </div>
-    </div>
     <!--    <h1>Pizzalist</h1>-->
     <div class="fluid-container container-background">
+
         <div class="row">
             <div class="col-2 side-menu center-block">
                 <button type="button" class="btn side-btn btn-lg btn-block">Pizza</button>
@@ -43,6 +38,12 @@
                 </div>
             </div>
             <div class="col">
+                <div class="input-group mb-3 corner">
+                    <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                    </div>
+                </div>
                 <div class="checkbox-filter">
                     <div class="allergens allergene-title">Allergens:</div>
                     <div class="allergens">
@@ -57,7 +58,9 @@
                         <label class="allergene-label">allergene1:<input type="checkbox" name="vehicle1"
                                                                          value="allergene1"></label>
                     </div>
+
                 </div>
+
                 <div class="pizza-list">
 <!--                    for-->
                     <div class="card mb-3 pizza-card center">
