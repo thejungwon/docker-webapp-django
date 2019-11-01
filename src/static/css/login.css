@@ -63,3 +63,9 @@ input[type=submit] {
 input[type=submit]:hover {
   background-color: #b3b3b3;
 }
+
+.errorlist {
+	color: red;
+	list-style-image: url("../images/error.png");	
+	margin-bottom: 2%;
+}
