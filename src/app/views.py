@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.utils.translation import gettext as _
 from .models import *
+from .domain.models import *
 
 
 class SignUp(generic.CreateView):
@@ -52,5 +53,16 @@ def pizzalist(request):
 
 
 def myorders(request):
-    context = {"myorders_page": "active"}
+    address = Address.objects.filter(O_T_M_User_Adresses = request.user).order_by('-last_updated')[:1]
+    myorders = []
+    actorderitems = []
+
+    for order in Order.objects.filter(O_T_M_User_Orders = request.user):
+      for orderitem in OrderItem.objects.filter(O_T_M_Order_OrderItems = orders):
+        actorderitems.append(orderitem)
+      myorders += (actorderitems, Transaction.objects.filter(O_T_O_Order_Transaction = order), order.delivery_date)
+
+    context = {"myorders_page": "active",
+               "myorders": myorders,
+               "address": address}
     return render(request, 'myorders.html', context)

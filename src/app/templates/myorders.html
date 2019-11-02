@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="{% static 'css/album.css' %}" >
 	
-	<title>Pizza ordering system</title>
+	<title>Pizza - My orders</title>
 	
   </head>
   <body>
@@ -22,108 +22,42 @@
     <main role="main">
         <h1 class="text-center">My previous orders</h1>
         <section class="jumbotron text-center">
+        {% for orderitems, sum, date in myorders %}
         <div class="container bg-dark text-light border rounded mb-5">
 			<div class="row mb-3 mt-3 ml-1">
 				<div class="col-3">
 					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
 				</div>
 				<div class="col-9">
-					<div class="row"><h3>Pizzeria XYZ</h3></div>
-					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
+					<div class="row"><h3>Pizza</h3></div>
+					<div class="row">{{ date }} -> Shipping here: {{ address.city }}, {{ address.street_and_street_number }} {{ address.door_number_and_others }}, {{ address.zip_code }}</div>
 				</div>
 			</div>
 			<div class="row mb-3 mt-3 ml-1">
 				<div class="col-8 bg-light text-dark border rounded">
-					<div class="row">
-						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
-						<div class="col text-right">1390 Ft</div>
-					</div>
+					{% for orderitem in orderitems.O_T_M_Product_OrderItems2 %}
 					<div class="row border-top">
-						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
-						<div class="col text-right">1290 Ft</div>
+						<div class="col-6 text-left">{{ orderitem.name }} ({{ orderitem.size }})</div>
+						<!--div class="col text-right">1390 Ft</div-->
 					</div>
+					{% endfor %}
+					{% for orderitem in orderitems.O_T_M_Product_OrderItems %}
 					<div class="row border-top">
-						<div class="col-6 text-left">Shipping cost</div>
-						<div class="col text-right">300 Ft</div>
+						<div class="col-6 text-left">{{ orderitem.name }} ({{ orderitem.size }})</div>
+						<!--div class="col text-right">1390 Ft</div-->
 					</div>
+					{% endfor %}
 					<div class="row border-top">
 						<div class="col-6 text-left">Total</div>
-						<div class="col text-right">2980 Ft</div>
+						<div class="col text-right">{{ sum.amount }} {{ sum.currency }}</div>
 					</div>
 				</div>
 				<div class="col-4">
-					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
+					<a href="{% url 'pizzalist' %}" class="btn btn-secondary my-2">Reorder</a>
 				</div>
 			</div>
         </div>
-    <div class="container bg-dark text-light border rounded mb-5">
-			<div class="row mb-3 mt-3 ml-1">
-				<div class="col-3">
-					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
-				</div>
-				<div class="col-9">
-					<div class="row"><h3>Pizzeria XYZ</h3></div>
-					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
-				</div>
-			</div>
-			<div class="row mb-3 mt-3 ml-1">
-				<div class="col-8 bg-light text-dark border rounded">
-					<div class="row">
-						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
-						<div class="col text-right">1390 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
-						<div class="col text-right">1290 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Shipping cost</div>
-						<div class="col text-right">300 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Total</div>
-						<div class="col text-right">2980 Ft</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
-				</div>
-			</div>
-        </div>
-    <div class="container bg-dark text-light border rounded mb-5">
-			<div class="row mb-3 mt-3 ml-1">
-				<div class="col-3">
-					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
-				</div>
-				<div class="col-9">
-					<div class="row"><h3>Pizzeria XYZ</h3></div>
-					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
-				</div>
-			</div>
-			<div class="row mb-3 mt-3 ml-1">
-				<div class="col-8 bg-light text-dark border rounded">
-					<div class="row">
-						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
-						<div class="col text-right">1390 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
-						<div class="col text-right">1290 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Shipping cost</div>
-						<div class="col text-right">300 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Total</div>
-						<div class="col text-right">2980 Ft</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
-				</div>
-			</div>
-        </div>
+		{% endfor %}
     </section>
     </main>
     <footer class="text-muted">
