@@ -2,31 +2,78 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="{% static 'css/album.css' %}" >
-    <title>Pizza - Home</title>
-  </head>
-  <body>
-    {% include 'layouts/navbar.html' %}
-    
-    <main role="main">
+		<link rel="stylesheet" href="{% static 'css/album.css' %}" >
+		<link rel="stylesheet" href="{% static 'css/map.css' %}" >
+		<title>Pizza - Home</title>
+	</head>
+	<body>
+		{% include 'layouts/navbar.html' %}
+		
+	<main role="main">
+		<div class="text-center rounded mb-12">
+			<img class="img-fluid rounded" src="https://source.unsplash.com/random/1200x300" alt="Főoldal kép"/>
+		</div>
+		<div class="container bg-dark text-light border rounded mb-12 mt-4">
+			<div class="row mb-3 mt-3 ml-1">
+				<div class="col-6">
+					<div class="row"><h3>Pizzériánkról</h3></div>
+					<p>
+							A pizza olasz eredetű étel, ami mára az egész világon elterjedt. <br>
+							Alapja egy kelt tésztából készült vékony lepénykenyér, melyet paradicsom vagy tejföl alapú szósszal borítanak,  <br>
+							és erre különféle feltétek kerülnek, (a leggyakoribbak a különféle zöldségek, gomba és felvágottak),  <br>
+							a tésztát végül reszelt sajttal szórják meg és sütőben megsütik.  <br>
+							Jellegzetes fűszerei közé tartozik az oregánó és a pepperoni.  <br>
+							Az eredeti olasz pizzára szeletelt mozzarellát, bazsalikomot és olíva olajat tesznek, erre kerülhet további feltét.
+					</p>
+				</div>
+				<div class="col-6">
+					<div class="row"><h3>Térkép</h3></div>
+					<div class="row">
+						<div class="mapouter">
+							<div class="gmap_canvas">
+								<iframe width="500" height="260" id="gmap_canvas" src="https://maps.google.com/maps?q=hungary%20pizza&t=&z=7&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
+								<a href="https://www.embedgooglemap.net/blog/best-wordpress-themes/">embedgooglemap.net</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row mb-3 mt-3 ml-1">
+				<div class="rounded row col-12">
+					<div class="col-3 text-left">
+						<span class="badge badge-pill badge-success">Akciós</span>
+						<img src="https://source.unsplash.com/random/100x100" class="card-img" alt="...">
+					</div>
+					<div class="col-3 text-left">
+						<span class="badge badge-pill badge-success">Akciós</span>
+						<img src="https://source.unsplash.com/random/100x100" class="card-img" alt="...">
+					</div>
+					<div class="col-3 text-right">
+						<span class="badge badge-pill badge-info">Ajánlott</span>
+						<img src="https://source.unsplash.com/random/100x100" class="card-img" alt="...">
+					</div>
+					<div class="col-3 text-right">
+						<span class="badge badge-pill badge-info">Ajánlott</span>
+						<img src="https://source.unsplash.com/random/100x100" class="card-img" alt="...">
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 
-      <h1>Home page</h1>
-
-    </main>
-
-    <footer class="text-muted">
-      {% include 'layouts/footer.html' %}
-    </footer>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  </body>
+		<footer class="text-muted">
+			{% include 'layouts/footer.html' %}
+		</footer>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	</body>
 </html>
