@@ -53,16 +53,17 @@ def pizzalist(request):
 
 
 def myorders(request):
-    address = Address.objects.filter(O_T_M_User_Adresses = request.user).order_by('-last_updated')[:1]
     myorders = []
     actorderitems = []
+    sum = 0
 
     for order in Order.objects.filter(O_T_M_User_Orders = request.user):
       for orderitem in OrderItem.objects.filter(O_T_M_Order_OrderItems = orders):
         actorderitems.append(orderitem)
-      myorders += (actorderitems, Transaction.objects.filter(O_T_O_Order_Transaction = order), order.delivery_date)
+        sum += orderitem.price
+      t = order.transaction
+      myorders += (actorderitems, sum, t.currency, order)
 
     context = {"myorders_page": "active",
-               "myorders": myorders,
-               "address": address}
+               "myorders": myorders}
     return render(request, 'myorders.html', context)
