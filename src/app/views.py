@@ -54,15 +54,23 @@ def pizzalist(request):
 
 def myorders(request):
     myorders = []
-    actorderitems = []
-    sum = 0
 
     for order in Order.objects.filter(O_T_M_User_Orders = request.user):
-      for orderitem in OrderItem.objects.filter(O_T_M_Order_OrderItems = orders):
-        actorderitems.append(orderitem)
-        sum += orderitem.price
-      t = order.transaction
-      myorders += (actorderitems, sum, t.currency, order)
+      sum = 0
+      actorderitems = []
+      for orderitem in OrderItem.objects.filter(O_T_M_Order_OrderItems = order):
+        for food in FoodProduct.objects.filter(O_T_M_OrderItem_FoodProducts = orderitem):
+          actorderitems.append(food)
+          sum += food.price
+        for drink in DrinkProduct.objects.filter(O_T_M_OrderItem_DrinkProducts = orderitem):
+          actorderitems.append(drink)
+          sum += drink.price
+
+      try:
+        myorders.append((actorderitems, sum, order.transaction.currency, order))
+      except Exception:
+        myorders.append((actorderitems, sum, "HUF", order))
+
 
     context = {"myorders_page": "active",
                "myorders": myorders}
