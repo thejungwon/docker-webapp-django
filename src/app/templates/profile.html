@@ -21,89 +21,93 @@
     <main role="main">
       <h1 class="text-center">Profile</h1>
       <section class="container">
-        <form>
-          <div class="form-group row">
-            <label for="email" class="col-sm-2 col-form-label">Email</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="email" placeholder="email@example.com">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="full-name" class="col-sm-2 col-form-label">Full name</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="full-name" placeholder="Full name">
-            </div>
-          </div>
-          <div class="form-check form-check-inline offset-sm-2">
-            <input class="form-check-input" type="radio" name="gender" checked id="male" value="male">
-            <label class="form-check-label" for="male">Male</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="gender" id="female" value="female">
-            <label class="form-check-label" for="female">Female</label>
-          </div>
-          <div class="form-group row mt-3">
-            <label for="date" class="col-sm-2 col-form-label">Date of Birth</label>
-            <div class="col-sm-10">
-              <input id="date" placeholder="Date of Birth">
-            </div>
-          </div>
-          <div class="form-group offset-sm-2">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="newsletter" checked>
-              <label class="form-check-label" for="newsletter">
-                Subscribe to newsletter
-              </label>
-            </div>
-          </div>
-          <h2 class="mb-3">Credit cards</h2>
-          <div class="table-responsive text-center">
-            <table class="table table-bordered">
-              <thead>
-                <tr class="table-warning">
-                  <th scope="col">#</th>
-                  <th scope="col">Card Number</th>
-                  <th scope="col">Expiration Date (MMYY)</th>
-                  <th scope="col">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>*************1234</td>
-                  <td>12/23</td>
-                  <td class="text-left"><i class="fas fa-trash-alt mr-1"></i><i class="fas fa-edit"></i></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#credit-card-modal">Add credit card</button>
-          <h2 class="mt-3 mb-3">Addresses</h2>
-          <div class="row">
-            <div class="col-md-6 col-sm-12">
-              <div class="card">
-                <div class="card-header warn">
-                  Home
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <form>
+              <div class="form-group row">
+                <label for="email" class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="email" placeholder="email@example.com">
                 </div>
-                <div class="card-body">
-                  <p class="card-text">City: Budapest</p>
-                  <p class="card-text">
-                    Street Address: Virág utca 16., </br>
-                    Street Address 2: 165. em. 89. a.
-                  </p>
-                  <p class="card-text">Zip code: 1234</p>
-                  <div class="float-right">
-                    <i class="fas fa-trash-alt mr-1"></i><i class="fas fa-edit"></i>
+              </div>
+              <div class="form-group row">
+                <label for="full-name" class="col-sm-4 col-form-label">Full name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="full-name" placeholder="Full name">
+                </div>
+              </div>
+              <div class="form-check form-check-inline offset-sm-4">
+                <input class="form-check-input" type="radio" name="gender" checked id="male" value="male">
+                <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+              <div class="form-group row mt-3">
+                <label for="date" class="col-sm-4 col-form-label">Date of Birth</label>
+                <div class="col-sm-8">
+                  <input id="date" placeholder="Date of Birth">
+                </div>
+              </div>
+              <div class="form-group offset-sm-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="newsletter" checked>
+                  <label class="form-check-label" for="newsletter">
+                    Subscribe to newsletter
+                  </label>
+                </div>
+              </div>
+              <h2 class="mb-3">Credit cards</h2>
+              <div class="table-responsive text-center">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr class="table-warning">
+                      <th scope="col">#</th>
+                      <th scope="col">Card Number</th>
+                      <th scope="col">Expiration Date (MMYY)</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>*************1234</td>
+                      <td>12/23</td>
+                      <td class="text-left"><i class="fas fa-trash-alt mr-1"></i><i class="fas fa-edit"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#credit-card-modal">Add credit card</button>
+              <h2 class="mt-3 mb-3">Addresses</h2>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="card">
+                    <div class="card-header warn">
+                      Home
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">City: Budapest</p>
+                      <p class="card-text">
+                        Street Address: Virág utca 16., </br>
+                        Street Address 2: 165. em. 89. a.
+                      </p>
+                      <p class="card-text">Zip code: 1234</p>
+                      <div class="float-right">
+                        <i class="fas fa-trash-alt mr-1"></i><i class="fas fa-edit"></i>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+              <button type="button" class="btn btn-outline-warning mt-3" data-toggle="modal" data-target="#address-modal">Add address</button>
+              <div class="d-flex flex-row justify-content-center">
+                <button class="btn btn-primary btn-prim-cust mt-3 pl-5 pr-5" type="submit">Update</button>
+              </div>
+            </form>
           </div>
-          <button type="button" class="btn btn-outline-warning mt-3" data-toggle="modal" data-target="#address-modal">Add address</button>
-          <div class="d-flex flex-row justify-content-center">
-            <button class="btn btn-primary btn-prim-cust mt-3 pl-5 pr-5" type="submit">Update</button>
-          </div>
-        </form>
+        </div>
       </section>
       <div class="modal fade" id="credit-card-modal" tabindex="-1" role="dialog" aria-labelledby="credit-card-label" aria-hidden="true">
         <div class="modal-dialog" role="document">
