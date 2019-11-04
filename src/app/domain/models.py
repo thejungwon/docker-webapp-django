@@ -74,7 +74,7 @@ class PriviligeLevel(models.Model):
 
 class Transaction(models.Model):
     #  Relationships
-    O_T_O_Order_Transaction = models.OneToOneField("app.Order", on_delete=models.CASCADE, null = True)
+    O_T_O_Order_Transaction = models.OneToOneField("app.Order", on_delete=models.CASCADE)
 
     #  Fields
     payment_type = models.TextField(max_length=50)
@@ -202,7 +202,6 @@ class Courier(models.Model):
 
 class Order(models.Model):
     #  Relationships
-    O_T_O_Transaction_Order = models.OneToOneField(Transaction, on_delete=models.CASCADE)
     Courier_Orders = models.ForeignKey(Courier, on_delete=models.CASCADE)
     O_T_M_User_Orders = models.ForeignKey("auth.User", on_delete=models.CASCADE)
     O_T_O_Address_Order = models.OneToOneField(Address, on_delete=models.CASCADE, null=True)
