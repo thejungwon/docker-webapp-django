@@ -9,8 +9,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <link rel="stylesheet" href="{% static 'css/album.css' %}" >
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}" >
     <title>Pizza - Profile</title>
   </head>
   <body>
@@ -18,17 +19,183 @@
     {% block content %}{% endblock %}
 
     <main role="main">
-    
-        <h1>Profile</h1>
-
+      <h1 class="text-center">Profile</h1>
+      <section class="container">
+        <div class="row">
+          <div class="col-lg-8 offset-lg-2">
+            <form>
+              <div class="form-group row">
+                <label for="email" class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="email" placeholder="email@example.com">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="full-name" class="col-sm-4 col-form-label">Full name</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" id="full-name" placeholder="Full name">
+                </div>
+              </div>
+              <div class="form-check form-check-inline offset-sm-4">
+                <input class="form-check-input" type="radio" name="gender" checked id="male" value="male">
+                <label class="form-check-label" for="male">Male</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="gender" id="female" value="female">
+                <label class="form-check-label" for="female">Female</label>
+              </div>
+              <div class="form-group row mt-3">
+                <label for="date" class="col-sm-4 col-form-label">Date of Birth</label>
+                <div class="col-sm-8">
+                  <input id="date" placeholder="Date of Birth">
+                </div>
+              </div>
+              <div class="form-group offset-sm-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="newsletter" checked>
+                  <label class="form-check-label" for="newsletter">
+                    Subscribe to newsletter
+                  </label>
+                </div>
+              </div>
+              <h2 class="mb-3">Credit cards</h2>
+              <div class="table-responsive text-center">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr class="table-warning">
+                      <th scope="col">#</th>
+                      <th scope="col">Card Number</th>
+                      <th scope="col">Expiration Date (MMYY)</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>*************1234</td>
+                      <td>12/23</td>
+                      <td class="text-left"><i class="fas fa-trash-alt mr-1"></i><i class="fas fa-edit"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#credit-card-modal">Add credit card</button>
+              <h2 class="mt-3 mb-3">Addresses</h2>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="card">
+                    <div class="card-header warn">
+                      Home
+                    </div>
+                    <div class="card-body">
+                      <p class="card-text">City: Budapest</p>
+                      <p class="card-text">
+                        Street Address: Virág utca 16., </br>
+                        Street Address 2: 165. em. 89. a.
+                      </p>
+                      <p class="card-text">Zip code: 1234</p>
+                      <div class="float-right">
+                        <i class="fas fa-trash-alt mr-1"></i><i class="fas fa-edit"></i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-outline-warning mt-3" data-toggle="modal" data-target="#address-modal">Add address</button>
+              <div class="d-flex flex-row justify-content-center">
+                <button class="btn btn-primary btn-prim-cust mt-3 pl-5 pr-5" type="submit">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <div class="modal fade" id="credit-card-modal" tabindex="-1" role="dialog" aria-labelledby="credit-card-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="credit-card-label">Add credit card</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name">
+              </div>
+              <div class="form-group">
+                <label for="cnumber">Card number</label>
+                <input type="text" class="form-control" id="cnumber" placeholder="Card number">
+              </div>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <label for="expm">Expiration month</label>
+                  <input type="text" class="form-control" id="expm" placeholder="Expiration month">
+                </div>
+                <div class="form-group col-md-6">
+                  <label for="expy">Expiration year</label>
+                  <input type="text" class="form-control" id="expy" placeholder="Expiration year">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="scode">Security code</label>
+                <input type="text" class="form-control" id="scode" placeholder="Security code">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-prim-cust" data-dismiss="modal">Add</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="address-modal" tabindex="-1" role="dialog" aria-labelledby="address-label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="address-label">Add address</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="city">City</label>
+                <input type="text" class="form-control" id="city" placeholder="City">
+              </div>
+              <div class="form-group">
+                <label for="sa1">Street address</label>
+                <input type="text" class="form-control" id="sa1" placeholder="Street Address">
+              </div>
+              <div class="form-group">
+                <label for="sa2">Street address 2</label>
+                <input type="text" class="form-control" id="sa2" placeholder="Street Address 2">
+              </div>
+              <div class="form-group">
+                <label for="zc">Zip code</label>
+                <input type="text" class="form-control" id="zc" placeholder="Zip code">
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary btn-prim-cust" data-dismiss="modal">Add</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
-    <footer class="text-muted">
+    <footer class="text-muted mt-4">
       {% include 'layouts/footer.html' %}
     </footer>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <script>
+      jQuery('#date').datepicker({
+          uiLibrary: 'bootstrap4'
+      });
+    </script>
   </body>
 </html>
