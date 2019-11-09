@@ -74,7 +74,7 @@ class PriviligeLevel(models.Model):
 
 class Transaction(models.Model):
     #  Relationships
-    O_T_O_Order_Transaction = models.OneToOneField("app.Order", on_delete=models.CASCADE, null = True)
+    O_T_O_Order_Transaction = models.OneToOneField("app.Order", on_delete=models.CASCADE)
 
     #  Fields
     payment_type = models.TextField(max_length=50)
@@ -101,6 +101,8 @@ class Transaction(models.Model):
 class OrderItem(models.Model):
     #  Relationships
     O_T_M_Order_OrderItems = models.ForeignKey("app.Order", on_delete=models.CASCADE)
+    M_T_M_Product_OrderItems2 = models.ManyToManyField("app.FoodProduct", related_name='orderitems')
+    M_T_M_Product_OrderItems = models.ManyToManyField("app.DrinkProduct", related_name='orderitems')
 
     #  Fields
     discount = models.FloatField()
@@ -148,6 +150,9 @@ class Address(models.Model):
 
 
 class Ingredient(models.Model):
+    #  Relationships
+    FoodProduct_To_Ingredient = models.ManyToManyField("app.FoodProduct")
+
     #  Fields
     remaining_amount_in_inventory = models.FloatField()
     fats_per_serving = models.FloatField()
@@ -199,7 +204,7 @@ class Order(models.Model):
     #  Relationships
     Courier_Orders = models.ForeignKey(Courier, on_delete=models.CASCADE)
     O_T_M_User_Orders = models.ForeignKey("auth.User", on_delete=models.CASCADE)
-    O_T_O_Address_Order = models.OneToOneField(Address, on_delete=models.CASCADE, null=True)
+    O_T_O_Address_Order = models.OneToOneField(Address, on_delete=models.CASCADE, null = True)
 
     #  Fields
     delivery_date = models.DateTimeField()
@@ -226,10 +231,6 @@ class Order(models.Model):
 
 
 class FoodProduct(Product):
-    #  Relationships
-    FoodProduct_To_Ingredient_2 = models.ManyToManyField(Ingredient)
-    O_T_M_OrderItem_FoodProducts = models.ForeignKey("app.OrderItem", on_delete=models.CASCADE, null = True)
-
     #  Fields
     vegan = models.BooleanField()
     last_updated = models.DateTimeField(auto_now=True, editable=False)
@@ -252,8 +253,6 @@ class FoodProduct(Product):
 
 
 class DrinkProduct(Product):
-    # Relationships
-    O_T_M_OrderItem_DrinkProducts = models.ForeignKey("app.OrderItem", on_delete=models.CASCADE, null = True)
     #  Fields
     contains_caffeine = models.BooleanField()
     last_updated = models.DateTimeField(auto_now=True, editable=False)

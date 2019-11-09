@@ -59,10 +59,10 @@ def myorders(request):
       sum = 0
       actorderitems = []
       for orderitem in OrderItem.objects.filter(O_T_M_Order_OrderItems = order):
-        for food in FoodProduct.objects.filter(O_T_M_OrderItem_FoodProducts = orderitem):
+        for food in FoodProduct.objects.filter(orderitems = orderitem):
           actorderitems.append(food)
           sum += food.price
-        for drink in DrinkProduct.objects.filter(O_T_M_OrderItem_DrinkProducts = orderitem):
+        for drink in DrinkProduct.objects.filter(orderitems = orderitem):
           actorderitems.append(drink)
           sum += drink.price
 
