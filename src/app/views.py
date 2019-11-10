@@ -71,6 +71,7 @@ def myorders(request):
       except Exception:
         myorders.append((actorderitems, sum, "HUF", order))
 
+      myorders = myorders[-3:]
 
     context = {"myorders_page": "active",
                "myorders": myorders}
