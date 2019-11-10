@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.utils.translation import gettext as _
 from .models import *
+from .domain.models import *
 
 
 class SignUp(generic.CreateView):
@@ -52,5 +53,26 @@ def pizzalist(request):
 
 
 def myorders(request):
-    context = {"myorders_page": "active"}
+    myorders = []
+
+    for order in Order.objects.filter(O_T_M_User_Orders = request.user):
+      sum = 0
+      actorderitems = []
+      for orderitem in OrderItem.objects.filter(O_T_M_Order_OrderItems = order):
+        for food in FoodProduct.objects.filter(orderitems = orderitem):
+          actorderitems.append(food)
+          sum += food.price
+        for drink in DrinkProduct.objects.filter(orderitems = orderitem):
+          actorderitems.append(drink)
+          sum += drink.price
+
+      try:
+        myorders.append((actorderitems, sum, order.transaction.currency, order))
+      except Exception:
+        myorders.append((actorderitems, sum, "HUF", order))
+
+      myorders = myorders[-3:]
+
+    context = {"myorders_page": "active",
+               "myorders": myorders}
     return render(request, 'myorders.html', context)
