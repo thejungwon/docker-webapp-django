@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="{% static 'css/album.css' %}" >
 	
-	<title>Pizza ordering system</title>
+	<title>Pizza - My orders</title>
 	
   </head>
   <body>
@@ -23,118 +23,47 @@
         <h1 class="text-center">My previous orders</h1>
         <section class="jumbotron text-center">
 
-            <div class="container bg-dark text-light border rounded mb-5">
-                Futár:
-                <div class="row center-map">
-<!--                    src="https://maps.google.com/maps?q=<LONGITUDE>%2C+<LATITUDE>&t=&z=15&ie=UTF8&iwloc=&output=embed"-->
-                    <iframe width="500" height="260" id="gmap_canvas" src="https://maps.google.com/maps?q=47.473956%2C+19.061503&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-                </div>
+        <div class="container bg-dark text-light border rounded mb-5">
+            Futár:
+            <div class="row center-map">
+                <!--                    src="https://maps.google.com/maps?q=<LONGITUDE>%2C+<LATITUDE>&t=&z=15&ie=UTF8&iwloc=&output=embed"-->
+                <iframe width="500" height="260" id="gmap_canvas" src="https://maps.google.com/maps?q=47.473956%2C+19.061503&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
             </div>
-
-            <div class="container bg-dark text-light border rounded mb-5">
-
-
-            <div class="row mb-3 mt-3 ml-1">
-				<div class="col-3">
-					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
-				</div>
-				<div class="col-9">
-					<div class="row"><h3>Pizzeria XYZ</h3></div>
-					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
-				</div>
-			</div>
-			<div class="row mb-3 mt-3 ml-1">
-				<div class="col-8 bg-light text-dark border rounded">
-					<div class="row">
-						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
-						<div class="col text-right">1390 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
-						<div class="col text-right">1290 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Shipping cost</div>
-						<div class="col text-right">300 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Total</div>
-						<div class="col text-right">2980 Ft</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
-				</div>
-			</div>
         </div>
-    <div class="container bg-dark text-light border rounded mb-5">
+
+        <div class="container bg-dark text-light border rounded mb-5">
+
+
+            {% for order in myorders %}
+        <div class="container bg-dark text-light border rounded mb-5">
 			<div class="row mb-3 mt-3 ml-1">
 				<div class="col-3">
 					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
 				</div>
 				<div class="col-9">
-					<div class="row"><h3>Pizzeria XYZ</h3></div>
-					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
+					<div class="row"><h3>Pizza</h3></div>
+					<div class="row">{{ order.3.delivery_date }} -> Shipping here: {{ order.3.O_T_O_Address_Order.city }}, {{ order.3.O_T_O_Address_Order.street_and_street_number }} {{ order.3.O_T_O_Address_Order.door_number_and_others }}, {{ order.3.O_T_O_Address_Order.zip_code }}</div>
 				</div>
 			</div>
 			<div class="row mb-3 mt-3 ml-1">
 				<div class="col-8 bg-light text-dark border rounded">
-					<div class="row">
-						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
-						<div class="col text-right">1390 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
-						<div class="col text-right">1290 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Shipping cost</div>
-						<div class="col text-right">300 Ft</div>
-					</div>
+					{% for product in order.0 %}
+						<div class="row border-top">
+							<div class="col-6 text-left">{{ product.name }} ({{ product.size }})</div>
+							<div class="col text-right">{{ product.price }} {{ order.2 }}</div>
+						</div>
+					{% endfor %}
 					<div class="row border-top">
 						<div class="col-6 text-left">Total</div>
-						<div class="col text-right">2980 Ft</div>
+						<div class="col text-right">{{ order.1 }} {{ order.2 }}</div>
 					</div>
 				</div>
 				<div class="col-4">
-					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
+					<a href="{% url 'pizzalist' %}" class="btn btn-secondary my-2">Reorder</a>
 				</div>
 			</div>
         </div>
-    <div class="container bg-dark text-light border rounded mb-5">
-			<div class="row mb-3 mt-3 ml-1">
-				<div class="col-3">
-					<img class="img-fluid rounded float-left" src="https://source.unsplash.com/random/100x100" alt="Pizzás kép"/>
-				</div>
-				<div class="col-9">
-					<div class="row"><h3>Pizzeria XYZ</h3></div>
-					<div class="row">2019.10.17 19:34 -> Shipping here: Budapest, Teszt u. 91, 1222</div>
-				</div>
-			</div>
-			<div class="row mb-3 mt-3 ml-1">
-				<div class="col-8 bg-light text-dark border rounded">
-					<div class="row">
-						<div class="col-6 text-left">Songoku pizza (32 cm)</div>
-						<div class="col text-right">1390 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Hawaii pizza (32 cm)</div>
-						<div class="col text-right">1290 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Shipping cost</div>
-						<div class="col text-right">300 Ft</div>
-					</div>
-					<div class="row border-top">
-						<div class="col-6 text-left">Total</div>
-						<div class="col text-right">2980 Ft</div>
-					</div>
-				</div>
-				<div class="col-4">
-					<a href="{% url 'myorders' %}" class="btn btn-secondary my-2">Reorder</a>
-				</div>
-			</div>
-        </div>
+		{% endfor %}
     </section>
     </main>
     <footer class="text-muted">
