@@ -1,8 +1,8 @@
 # Radix Django with PostgreSQL
 
-One-minute deployment, simple but cool web-application.
+One-minute deployment, simple web-application.
 
-*It is not recommended to deploy a database to the instances, this example shows the way to handle the multi-container situation, especially, when one container(Django) strongly depends on the other container(database).*
+*It is not recommended to deploy a database to the instance. This example shows how to handle the multi-container situation, especially when one container(Django) strongly depends on the other container(database).*
 
 
 ## Getting Started
@@ -11,7 +11,7 @@ Two containers
   * web app(Django)
   * database(PostgreSQL)
 
-When we launch the application with `docker-composer`, it is not possible to predict the finishing time.
+When we launch the application with a `docker-composer,` it is impossible to predict the finishing time.
 This can be a big problem when one container has to be launched while the other container is properly running.
 
 In this example, PostgreSQL needs more time to be launched than the Django application when it is its first launch. However, the Django application needs to be connected with a database before it starts to run.
