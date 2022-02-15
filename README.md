@@ -11,6 +11,7 @@ Two containers
   * web app(Django)
   * database(PostgreSQL)
 
+If a container (Django) should be launched after another container(postgres) we can define it in the `depends_on` field.
 
 ```
 version: '3.3'
@@ -49,7 +50,7 @@ $ docker-compose -v
 docker-compose version 1.21.1, build 5a3f1a3
 ```
 
-### Installing
+### Installation
 
 ```
 git clone https://github.com/thejungwon/docker-webapp-django.git
