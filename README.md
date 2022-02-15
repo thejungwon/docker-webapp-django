@@ -1,8 +1,8 @@
-# Radix Django with PostgreSQL
+# Django with PostgreSQL
 
 One-minute deployment, simple web-application.
 
-*It is not recommended to deploy a database to the instance. This example shows how to handle the multi-container situation, especially when one container(Django) strongly depends on the other container(database).*
+*It is not recommended to deploy a core database as a container. This example shows how to handle the multi-container situation, when one container (Django) strongly depends on the other container (database).*
 
 
 ## Getting Started
@@ -11,29 +11,27 @@ Two containers
   * web app(Django)
   * database(PostgreSQL)
 
-When we launch the application with a `docker-composer,` it is impossible to predict the finishing time.
-This can be a big problem when one container has to be launched while the other container is properly running.
-
-In this example, PostgreSQL needs more time to be launched than the Django application when it is its first launch. However, the Django application needs to be connected with a database before it starts to run.
-
-In the dockerfile, we should run the container with some additional tactics like in `entry_point.sh`.
 
 ```
-#!/bin/bash
-cd src
-python manage.py makemigrations
+version: '3.3'
 
-#until it succeeds
-until python manage.py migrate; do
-  sleep 2
-  echo "Retry!";
-done
+services:
+  app:
+    build:
+      context: ./src
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+  db:
+    image: "postgres:13.5-alpine"
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
 
-python manage.py shell < init_admin.py
-python manage.py makemigrations app
-python manage.py migrate app
-echo "Django is ready.";
-python manage.py runserver 0.0.0.0:8000
 ```
 
 

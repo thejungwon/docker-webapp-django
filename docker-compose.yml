@@ -3,18 +3,14 @@ version: '3.3'
 services:
   app:
     build:
-      context: .
+      context: ./src
       dockerfile: Dockerfile
-    expose:
-      - "8000"
     ports:
       - "8000:8000"
-    links:
-      - postgres
-  postgres:
-    build:
-      context: ./postgres
-      dockerfile: Dockerfile
+    depends_on:
+      - db
+  db:
+    image: "postgres:13.5-alpine"
     ports:
       - "5432:5432"
     environment:
